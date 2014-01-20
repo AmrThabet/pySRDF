@@ -69,99 +69,17 @@ except AttributeError:
     _newclass = 0
 
 
-class TEST_STRUCTArray(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TEST_STRUCTArray, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, TEST_STRUCTArray, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["data"] = _pySRDF.TEST_STRUCTArray_data_set
-    __swig_getmethods__["data"] = _pySRDF.TEST_STRUCTArray_data_get
-    if _newclass:data = _swig_property(_pySRDF.TEST_STRUCTArray_data_get, _pySRDF.TEST_STRUCTArray_data_set)
-    def __init__(self, *args): 
-        this = _pySRDF.new_TEST_STRUCTArray(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    def init(self, *args): return _pySRDF.TEST_STRUCTArray_init(self, *args)
-    def setvalues(self, *args): return _pySRDF.TEST_STRUCTArray_setvalues(self, *args)
-    def additem(self, *args): return _pySRDF.TEST_STRUCTArray_additem(self, *args)
-    def clear(self): return _pySRDF.TEST_STRUCTArray_clear(self)
-    def __len__(self): return _pySRDF.TEST_STRUCTArray___len__(self)
-    def __getitem__(self, *args): return _pySRDF.TEST_STRUCTArray___getitem__(self, *args)
-    __swig_destroy__ = _pySRDF.delete_TEST_STRUCTArray
-    __del__ = lambda self : None;
-TEST_STRUCTArray_swigregister = _pySRDF.TEST_STRUCTArray_swigregister
-TEST_STRUCTArray_swigregister(TEST_STRUCTArray)
 
+def set_err(*args):
+  return _pySRDF.set_err(*args)
+set_err = _pySRDF.set_err
 
-def print_to_python():
-  return _pySRDF.print_to_python()
-print_to_python = _pySRDF.print_to_python
-class TEST_STRUCT(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TEST_STRUCT, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, TEST_STRUCT, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["x"] = _pySRDF.TEST_STRUCT_x_set
-    __swig_getmethods__["x"] = _pySRDF.TEST_STRUCT_x_get
-    if _newclass:x = _swig_property(_pySRDF.TEST_STRUCT_x_get, _pySRDF.TEST_STRUCT_x_set)
-    __swig_setmethods__["y"] = _pySRDF.TEST_STRUCT_y_set
-    __swig_getmethods__["y"] = _pySRDF.TEST_STRUCT_y_get
-    if _newclass:y = _swig_property(_pySRDF.TEST_STRUCT_y_get, _pySRDF.TEST_STRUCT_y_set)
-    __swig_setmethods__["z"] = _pySRDF.TEST_STRUCT_z_set
-    __swig_getmethods__["z"] = _pySRDF.TEST_STRUCT_z_get
-    if _newclass:z = _swig_property(_pySRDF.TEST_STRUCT_z_get, _pySRDF.TEST_STRUCT_z_set)
-    def __init__(self): 
-        this = _pySRDF.new_TEST_STRUCT()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _pySRDF.delete_TEST_STRUCT
-    __del__ = lambda self : None;
-TEST_STRUCT_swigregister = _pySRDF.TEST_STRUCT_swigregister
-TEST_STRUCT_swigregister(TEST_STRUCT)
-
-class TestArray(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TestArray, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, TestArray, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["arr"] = _pySRDF.TestArray_arr_set
-    __swig_getmethods__["arr"] = _pySRDF.TestArray_arr_get
-    if _newclass:arr = _swig_property(_pySRDF.TestArray_arr_get, _pySRDF.TestArray_arr_set)
-    def __init__(self): 
-        this = _pySRDF.new_TestArray()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _pySRDF.delete_TestArray
-    __del__ = lambda self : None;
-TestArray_swigregister = _pySRDF.TestArray_swigregister
-TestArray_swigregister(TestArray)
-
-class Test(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Test, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, Test, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["x"] = _pySRDF.Test_x_set
-    __swig_getmethods__["x"] = _pySRDF.Test_x_get
-    if _newclass:x = _swig_property(_pySRDF.Test_x_get, _pySRDF.Test_x_set)
-    def __init__(self, *args): 
-        this = _pySRDF.new_Test(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _pySRDF.delete_Test
-    __del__ = lambda self : None;
-    __swig_setmethods__["arr"] = _pySRDF.Test_arr_set
-    __swig_getmethods__["arr"] = _pySRDF.Test_arr_get
-    if _newclass:arr = _swig_property(_pySRDF.Test_arr_get, _pySRDF.Test_arr_set)
-    def AddString(self, *args): return _pySRDF.Test_AddString(self, *args)
-    def GetValues(self): return _pySRDF.Test_GetValues(self)
-Test_swigregister = _pySRDF.Test_swigregister
-Test_swigregister(Test)
-
+def err_occurred():
+  return _pySRDF.err_occurred()
+err_occurred = _pySRDF.err_occurred
+IMAGE_SCN_MEM_EXECUTE = _pySRDF.IMAGE_SCN_MEM_EXECUTE
+IMAGE_SCN_MEM_READ = _pySRDF.IMAGE_SCN_MEM_READ
+IMAGE_SCN_MEM_WRITE = _pySRDF.IMAGE_SCN_MEM_WRITE
 class cPEFile(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, cPEFile, name, value)
@@ -173,6 +91,7 @@ class cPEFile(_object):
     __del__ = lambda self : None;
 cPEFile_swigregister = _pySRDF.cPEFile_swigregister
 cPEFile_swigregister(cPEFile)
+cvar = _pySRDF.cvar
 
 class SECTION_STRUCT(_object):
     __swig_setmethods__ = {}
@@ -468,6 +387,14 @@ def PEFile_identify(*args):
   return _pySRDF.PEFile_identify(*args)
 PEFile_identify = _pySRDF.PEFile_identify
 
+PAGE_READONLY = _pySRDF.PAGE_READONLY
+PAGE_READWRITE = _pySRDF.PAGE_READWRITE
+PAGE_WRITECOPY = _pySRDF.PAGE_WRITECOPY
+PAGE_EXECUTE = _pySRDF.PAGE_EXECUTE
+PAGE_EXECUTE_READ = _pySRDF.PAGE_EXECUTE_READ
+PAGE_EXECUTE_READWRITE = _pySRDF.PAGE_EXECUTE_READWRITE
+PAGE_EXECUTE_WRITECOPY = _pySRDF.PAGE_EXECUTE_WRITECOPY
+PAGE_GUARD = _pySRDF.PAGE_GUARD
 class FLOATING_SAVE_AREA(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, FLOATING_SAVE_AREA, name, value)
@@ -842,6 +769,13 @@ DBG_STATUS_BREAKPOINT = _pySRDF.DBG_STATUS_BREAKPOINT
 DBG_STATUS_EXITPROCESS = _pySRDF.DBG_STATUS_EXITPROCESS
 DBG_STATUS_ERROR = _pySRDF.DBG_STATUS_ERROR
 DBG_STATUS_INTERNAL_ERROR = _pySRDF.DBG_STATUS_INTERNAL_ERROR
+DBG_STATUS_DIDNT_STARTED = _pySRDF.DBG_STATUS_DIDNT_STARTED
+DBG_CODE = _pySRDF.DBG_CODE
+DBG_READWRITE = _pySRDF.DBG_READWRITE
+DBG_WRITE = _pySRDF.DBG_WRITE
+DBG_BYTE = _pySRDF.DBG_BYTE
+DBG_WORD = _pySRDF.DBG_WORD
+DBG_DWORD = _pySRDF.DBG_DWORD
 class Dbg(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Dbg, name, value)
@@ -914,6 +848,7 @@ class Dbg(_object):
     def RemoveHardBp(self, *args): return _pySRDF.Dbg_RemoveHardBp(self, *args)
     def SetMemoryBp(self, *args): return _pySRDF.Dbg_SetMemoryBp(self, *args)
     def RemoveMemoryBp(self, *args): return _pySRDF.Dbg_RemoveMemoryBp(self, *args)
+    def GetLastError(self): return _pySRDF.Dbg_GetLastError(self)
     __swig_destroy__ = _pySRDF.delete_Dbg
     __del__ = lambda self : None;
 Dbg_swigregister = _pySRDF.Dbg_swigregister
@@ -1068,6 +1003,23 @@ class Disasm(_object):
 Disasm_swigregister = _pySRDF.Disasm_swigregister
 Disasm_swigregister(Disasm)
 
+MEM_READWRITE = _pySRDF.MEM_READWRITE
+MEM_READONLY = _pySRDF.MEM_READONLY
+MEM_IMAGEBASE = _pySRDF.MEM_IMAGEBASE
+MEM_DLLBASE = _pySRDF.MEM_DLLBASE
+MEM_VIRTUALPROTECT = _pySRDF.MEM_VIRTUALPROTECT
+EXP_EXCEED_MAX_ITERATIONS = _pySRDF.EXP_EXCEED_MAX_ITERATIONS
+EXP_INVALIDPOINTER = _pySRDF.EXP_INVALIDPOINTER
+EXP_WRITEACCESS_DENIED = _pySRDF.EXP_WRITEACCESS_DENIED
+EXP_INVALID_OPCODE = _pySRDF.EXP_INVALID_OPCODE
+EXP_DIVID_BY_ZERO = _pySRDF.EXP_DIVID_BY_ZERO
+EXP_INVALID_INSTRUCTION = _pySRDF.EXP_INVALID_INSTRUCTION
+EXP_DIV_OVERFLOW = _pySRDF.EXP_DIV_OVERFLOW
+EXP_BREAKPOINT = _pySRDF.EXP_BREAKPOINT
+ERROR_FILENAME = _pySRDF.ERROR_FILENAME
+DUMP_ZEROIMPORTTABLE = _pySRDF.DUMP_ZEROIMPORTTABLE
+DUMP_FIXIMPORTTABLE = _pySRDF.DUMP_FIXIMPORTTABLE
+DUMP_UNLOADIMPORTTABLE = _pySRDF.DUMP_UNLOADIMPORTTABLE
 class MEMORY_STRUCT(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MEMORY_STRUCT, name, value)
@@ -1182,6 +1134,7 @@ class Emulator(_object):
     def disasm(self, *args): return _pySRDF.Emulator_disasm(self, *args)
     def Read(self, *args): return _pySRDF.Emulator_Read(self, *args)
     def Write(self, *args): return _pySRDF.Emulator_Write(self, *args)
+    def GetLastError(self): return _pySRDF.Emulator_GetLastError(self)
 Emulator_swigregister = _pySRDF.Emulator_swigregister
 Emulator_swigregister(Emulator)
 

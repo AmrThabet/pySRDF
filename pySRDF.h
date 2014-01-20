@@ -52,8 +52,23 @@ struct array {
 		delete data;
 	}
 };
+
+/* Exception helpers */
+extern int swig_c_error_num;
+extern char swig_c_err_msg[256];
+void set_err(const char *msg);
+const char *err_occurred();
+
 #ifdef SWIG
 
+%exception {
+    const char *err;
+    $action
+    if (err = err_occurred()) {
+        PyErr_SetString(PyExc_RuntimeError, err);
+        return NULL;
+    }
+}
 
 
 %extend wrapped_array {
@@ -84,37 +99,9 @@ struct array {
 }
 %cstring_output_allocate_size(char **s, int *slen, free(*$1));
 
-%template (TEST_STRUCTArray) array<TEST_STRUCT*>;
-
 
 #endif
 
-/* C declarations */
-char* print_to_python();
-
-struct TEST_STRUCT
-{
-	int x;
-	int y;
-	int z;
-};
-
-
-struct TestArray
-{
-	wrapped_array<TEST_STRUCT*,1> arr;
-};
-
-class Test
-{
-public:
-	char* x;
-	Test(char* str);
-	~Test();
-	array<TEST_STRUCT*> arr;
-	int AddString(char* str);
-	void GetValues();
-};
 //===================================================================
 //PE File:
 
@@ -123,6 +110,9 @@ public:
 #define DWORD int
 #define BOOL bool
 
+#define IMAGE_SCN_MEM_EXECUTE                0x20000000  // Section is executable.
+#define IMAGE_SCN_MEM_READ                   0x40000000  // Section is readable.
+#define IMAGE_SCN_MEM_WRITE                  0x80000000  // Section is writeable.
 
 class cFile;
 class cPEFile : public cFile
@@ -209,6 +199,15 @@ public:
 //Process class:
 
 #ifdef SWIG
+
+#define PAGE_READONLY          0x02     
+#define PAGE_READWRITE         0x04     
+#define PAGE_WRITECOPY         0x08     
+#define PAGE_EXECUTE           0x10     
+#define PAGE_EXECUTE_READ      0x20     
+#define PAGE_EXECUTE_READWRITE 0x40     
+#define PAGE_EXECUTE_WRITECOPY 0x80     
+#define PAGE_GUARD            0x100     
 
 typedef struct FLOATING_SAVE_AREA {
     DWORD   ControlWord;
@@ -329,6 +328,15 @@ public:
 #define DBG_STATUS_EXITPROCESS		0
 #define DBG_STATUS_ERROR			-1
 #define DBG_STATUS_INTERNAL_ERROR	-2
+#define DBG_STATUS_DIDNT_STARTED	-3
+#define DBG_CODE		0 
+#define DBG_READWRITE	1
+#define DBG_WRITE		3
+
+#define DBG_BYTE			0
+#define DBG_WORD			1
+#define DBG_DWORD			3
+
 
 #else
 class cDbg : public cDebugger
@@ -351,6 +359,7 @@ class Dbg
 	void RefreshVariables();
 	void UpdateRegisters();
 	cDbg* Debugger;
+	int LastError;
 public:
 	//variables
 	BOOL IsDebugging;
@@ -385,6 +394,7 @@ public:
 	void RemoveHardBp(DWORD Address);
 	BOOL SetMemoryBp(DWORD Address,DWORD Size, DWORD Type);
 	void RemoveMemoryBp(DWORD Address);
+	char* GetLastError();
 };
 
 //======================================================================================================
@@ -512,6 +522,32 @@ public:
 //========================================================================================
 //Emulator
 #ifdef SWIG
+//------
+//MEMORY FLAGS
+
+#define MEM_READWRITE 0
+#define MEM_READONLY 1
+#define MEM_IMAGEBASE 2             //mixing readonly & readwrite so it needs to be check
+#define MEM_DLLBASE 3
+#define MEM_VIRTUALPROTECT 4
+//--------
+//EXCEPTIONS
+
+#define EXP_EXCEED_MAX_ITERATIONS 0
+#define EXP_INVALIDPOINTER 1
+#define EXP_WRITEACCESS_DENIED 2
+#define EXP_INVALID_OPCODE 3
+#define EXP_DIVID_BY_ZERO 4
+#define EXP_INVALID_INSTRUCTION 5
+#define EXP_DIV_OVERFLOW 6
+#define EXP_BREAKPOINT 7
+#define ERROR_FILENAME 8
+//-------
+//Dump
+#define DUMP_ZEROIMPORTTABLE    0
+#define DUMP_FIXIMPORTTABLE     1
+#define DUMP_UNLOADIMPORTTABLE  2
+
 struct MEMORY_STRUCT
 {
        DWORD VirtualAddr;
@@ -534,6 +570,7 @@ class Emulator
 	Disasm* dis;
 	void RefreshRegisters();
 	void UpdateRegisters();
+	DWORD LastError;
 public:
 	//variables:
 	DWORD eax;
@@ -548,7 +585,6 @@ public:
 	DWORD EFlags;
 	DWORD LastInsLength;
 	DWORD Imagebase;
-
 
 	//functions
 	Emulator(char *FileName);
@@ -571,6 +607,7 @@ public:
 	DISASM_INS* disasm(DWORD vAddr);
 	void Read(DWORD vAddr,DWORD size,char **s, int *slen);
 	void Write(DWORD vAddr, char* buff, DWORD size);
+	char* GetLastError();
 	//DWORD DefineDLL(char* DLLName,char* DLLPath, DWORD VirtualAddress);	//The Desired Virtual Address
 	//DWORD DefineAPI(DWORD DLLBase,char* APIName,int nArgs,DWORD APIFunc);
 };

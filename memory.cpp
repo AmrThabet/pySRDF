@@ -41,19 +41,8 @@ process::process(int processId)
 	}
 	else
 	{
-		procHandle = 0;
-		ppeb = 0;
-		Imagebase = 0;
-		SizeOfImage = 0;
-		Name = "";
-		Path = "";
-		MD5 = "";
-		Pid = 0;
-		PPid = 0;
-		Commandline = "";
-		ModuleList.init(sizeof(MODULE_INFO));
-		MemoryMap.init(sizeof(MEMORY_MAP));
-		Threads.init(sizeof(THREAD_INFO));
+		set_err("Process ID is invalid or access denied");
+		return;
 	}
 }
 
@@ -74,9 +63,15 @@ void process::Read(DWORD startAddress,DWORD size,char **s, int *slen)
 Dbg::Dbg(char* Filename,char* Commandline)
 {
 	Debugger = new cDbg(Filename,Commandline);
+	if (Debugger->IsDebugging == false)
+	{
+		set_err("filename not found or access denied");
+		return;
+	}
 	RefreshVariables();
 	Process = new process(ProcessId);
 	PE = new PEFile(Debugger->DebuggeePE);
+	LastError = -3;
 }
 
 Dbg::Dbg(process* proc)
@@ -86,6 +81,7 @@ Dbg::Dbg(process* proc)
 	RefreshVariables();
 	Process = proc;
 	PE = new PEFile(proc->Path);
+	LastError = -3;
 }
 
 void Dbg::UpdateRegisters()
@@ -143,17 +139,17 @@ void Dbg::SetReg(DWORD index, DWORD newValue)
 int Dbg::Run()
 {
 	UpdateRegisters();
-	int res = Debugger->Run();
+	LastError = Debugger->Run();
 	RefreshVariables();
-	return res;
+	return LastError;
 }
 
 int Dbg::Step()
 {
 	UpdateRegisters();
-	int res = Debugger->Step();
+	LastError = Debugger->Step();
 	RefreshVariables();
-	return res;
+	return LastError;
 }
 
 void Dbg::Exit()
@@ -192,3 +188,30 @@ void Dbg::RemoveMemoryBp(DWORD Address)
 {
 	Debugger->RemoveMemoryBreakpoint(Address);
 }
+
+char* Dbg::GetLastError()
+{
+	switch(LastError)
+	{
+	case -3:
+		return "The application didn't run";
+	case DBG_STATUS_STEP:
+		return "The application stepped one step";
+	case DBG_STATUS_HARDWARE_BP:
+		return "Hardware Breakpoint triggered";
+	case DBG_STATUS_MEM_BREAKPOINT:
+		return "Memory Breakpoint triggered";
+	case DBG_STATUS_EXITPROCESS:
+		return "The process exited normally";
+	case DBG_STATUS_ERROR:
+		return "Access voilation";
+	case DBG_STATUS_INTERNAL_ERROR:
+		return "Internal error";
+	case DBG_STATUS_BREAKPOINT:
+		return "Breakpoint reached";
+	case ERROR_FILENAME:
+		return "Wrong filename or access denied";
+	}
+	return "no error";
+}
+

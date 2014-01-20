@@ -67,17 +67,8 @@ void PEFile::AnalyzeFile()
 	}
 	else
 	{
-		//Set everything to zero to avoid errors
-		Magic = 0;
-		Subsystem = 0;
-		Imagebase = 0;
-		SizeOfImage = 0;
-		Entrypoint = 0;
-		FileAlignment = 0;
-		SectionAlignment = 0;
-		Sections.init(sizeof(SECTION_STRUCT));
-		ImportTable.init(sizeof(IMPORT_DLL));
-		ExportTable.Functions.init(sizeof(EXPORTFUNCTION));
+		set_err("filename not found or access denied");
+		return;
 	}
 }
 PEFile::~PEFile()

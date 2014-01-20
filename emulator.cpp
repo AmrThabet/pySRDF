@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "pySRDF.h"
-
+#include <Shlobj.h>
 using namespace std;
 Disasm::Disasm()
 {
@@ -56,8 +56,23 @@ Emulator::Emulator(char *FileName)
 {
 	char* DLLPath = (char*)malloc(MAX_PATH);
 	memset(DLLPath,0,MAX_PATH);
-	DWORD Length = GetSystemDirectoryA(DLLPath,MAX_PATH);
-	emu = new CPokasEmu(FileName,DLLPath);
+	//throw(std::out_of_range("wrong filename"));
+	DWORD Length = SHGetSpecialFolderPath(0, DLLPath, CSIDL_SYSTEMX86, false);
+	cString SysPath = DLLPath;
+	SysPath += "\\";
+	LastError = -1;
+	try
+	{
+		emu = new CPokasEmu(FileName,SysPath.GetChar());
+	}
+	catch (int x)
+	{
+
+		LastError = 8;
+		set_err(GetLastError());
+		GetLastError();
+		return;
+	}
 	dis = new Disasm();
 	Imagebase = emu->GetImagebase();
 	RefreshRegisters();
@@ -72,30 +87,31 @@ Emulator::Emulator(char *buff,int size)
 	dis = new Disasm();
 	Imagebase = emu->GetImagebase();
 	RefreshRegisters();
+	LastError = -1;
 }
 
 int Emulator::Run()
 {
 	UpdateRegisters();
-	int x = emu->Emulate();
+	LastError = emu->Emulate();
 	RefreshRegisters();
-	return x;
+	return LastError;
 }
 
 int Emulator::Run(char* LogFile)
 {
 	UpdateRegisters();
-	int x = emu->Emulate(LogFile);
+	int LastError = emu->Emulate(LogFile);
 	RefreshRegisters();
-	return x;
+	return LastError;
 }
 
 int Emulator::Step()
 {
 	UpdateRegisters();
-	int x = emu->Step();
+	LastError = emu->Step();
 	RefreshRegisters();
-	return x;
+	return LastError;
 }
 
 int Emulator::SetBp(char* Breakpoint)
@@ -197,8 +213,11 @@ MEMORY_STRUCT* Emulator::GetMemoryPageByVA(DWORD vAddr)
 
 Emulator::~Emulator()
 {
-	delete emu;
-	delete dis;
+	if (LastError != 8)
+	{
+		delete emu;
+		delete dis;
+	}
 }
 
 void Emulator::RefreshRegisters()
@@ -228,4 +247,32 @@ void Emulator::UpdateRegisters()
 	emu->SetReg(0,edi);
 	emu->SetEip(eip);
 	emu->SetEFLAGS(EFlags);
+}
+
+char* Emulator::GetLastError()
+{
+	switch(LastError)
+	{
+	case -1:
+		return "The application didn't run";
+	case EXP_EXCEED_MAX_ITERATIONS:
+		return "The application exceed the maximum iterations. Run again";
+	case EXP_INVALIDPOINTER:
+		return "Invalid pointer";
+	case EXP_WRITEACCESS_DENIED:
+		return "Unable to write, access denied";
+	case EXP_INVALID_OPCODE:
+		return "Invalid instruction";
+	case EXP_DIVID_BY_ZERO:
+		return "Divid by Zero";
+	case EXP_INVALID_INSTRUCTION:
+		return "Invalid instruction";
+	case EXP_DIV_OVERFLOW:
+		return "Divid Overflow";
+	case EXP_BREAKPOINT:
+		return "Breakpoint reached";
+	case ERROR_FILENAME:
+		return "Wrong filename or access denied";
+	}
+	return "no error";
 }
