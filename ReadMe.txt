@@ -18,16 +18,24 @@ This Project includes:
 That's the strongest reverse engineering and malware analysis tool for
 python and the easiest to install and use
 
-The application still in the pre-stage and BETA !! ... it's still in the 
-beginning
+The application still in the pre-stage and BETA !! ... and doesn't have all 
+SRDF features like in C++
 
-The Binary Files are:
----------------------
+
+Usage:
+-------
+
+To use it ... just ensure that you have the binary files:
+
 1. _pySRDF.pyd
 2. pySRDF.py
 3. SRDF.dll
 4. X86 Emulator.dll
 5. sqlite3.dll
+
+and install SWIG from: http://prdownloads.sourceforge.net/swig/swigwin-2.0.11.zip
+
+and it should work fine
 
 the project works only on Python version 2.7 win32 ... which works on both
 win32 and win64
@@ -59,3 +67,7 @@ To make the project compiled successfully ... you must clone winSRDF beside it
 and include it in the solution
 
 
+Contact us on:
+--------------
+Twitter: https://www.twitter.com/winSRDF
+Website: http://www.security-framework.com

@@ -849,6 +849,7 @@ class Dbg(_object):
     def SetMemoryBp(self, *args): return _pySRDF.Dbg_SetMemoryBp(self, *args)
     def RemoveMemoryBp(self, *args): return _pySRDF.Dbg_RemoveMemoryBp(self, *args)
     def GetLastError(self): return _pySRDF.Dbg_GetLastError(self)
+    def disasm(self, *args): return _pySRDF.Dbg_disasm(self, *args)
     __swig_destroy__ = _pySRDF.delete_Dbg
     __del__ = lambda self : None;
 Dbg_swigregister = _pySRDF.Dbg_swigregister
@@ -938,15 +939,41 @@ class intArray(_object):
 intArray_swigregister = _pySRDF.intArray_swigregister
 intArray_swigregister(intArray)
 
+class MODRM(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MODRM, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, MODRM, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["length"] = _pySRDF.MODRM_length_set
+    __swig_getmethods__["length"] = _pySRDF.MODRM_length_get
+    if _newclass:length = _swig_property(_pySRDF.MODRM_length_get, _pySRDF.MODRM_length_set)
+    __swig_setmethods__["__items__"] = _pySRDF.MODRM___items___set
+    __swig_getmethods__["__items__"] = _pySRDF.MODRM___items___get
+    if _newclass:__items__ = _swig_property(_pySRDF.MODRM___items___get, _pySRDF.MODRM___items___set)
+    __swig_setmethods__["__flags__"] = _pySRDF.MODRM___flags___set
+    __swig_getmethods__["__flags__"] = _pySRDF.MODRM___flags___get
+    if _newclass:__flags__ = _swig_property(_pySRDF.MODRM___flags___get, _pySRDF.MODRM___flags___set)
+    def items(self, *args): return _pySRDF.MODRM_items(self, *args)
+    def flags(self, *args): return _pySRDF.MODRM_flags(self, *args)
+    def __init__(self): 
+        this = _pySRDF.new_MODRM()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_MODRM
+    __del__ = lambda self : None;
+MODRM_swigregister = _pySRDF.MODRM_swigregister
+MODRM_swigregister(MODRM)
+
 class DISASM_INS(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, DISASM_INS, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, DISASM_INS, name)
     __repr__ = _swig_repr
-    __swig_setmethods__["tostr"] = _pySRDF.DISASM_INS_tostr_set
-    __swig_getmethods__["tostr"] = _pySRDF.DISASM_INS_tostr_get
-    if _newclass:tostr = _swig_property(_pySRDF.DISASM_INS_tostr_get, _pySRDF.DISASM_INS_tostr_set)
+    __swig_setmethods__["ins"] = _pySRDF.DISASM_INS_ins_set
+    __swig_getmethods__["ins"] = _pySRDF.DISASM_INS_ins_get
+    if _newclass:ins = _swig_property(_pySRDF.DISASM_INS_ins_get, _pySRDF.DISASM_INS_ins_set)
     __swig_setmethods__["length"] = _pySRDF.DISASM_INS_length_set
     __swig_getmethods__["length"] = _pySRDF.DISASM_INS_length_get
     if _newclass:length = _swig_property(_pySRDF.DISASM_INS_length_get, _pySRDF.DISASM_INS_length_set)
@@ -968,6 +995,9 @@ class DISASM_INS(_object):
     __swig_setmethods__["other"] = _pySRDF.DISASM_INS_other_set
     __swig_getmethods__["other"] = _pySRDF.DISASM_INS_other_get
     if _newclass:other = _swig_property(_pySRDF.DISASM_INS_other_get, _pySRDF.DISASM_INS_other_set)
+    __swig_setmethods__["modrm"] = _pySRDF.DISASM_INS_modrm_set
+    __swig_getmethods__["modrm"] = _pySRDF.DISASM_INS_modrm_get
+    if _newclass:modrm = _swig_property(_pySRDF.DISASM_INS_modrm_get, _pySRDF.DISASM_INS_modrm_set)
     __swig_setmethods__["flags"] = _pySRDF.DISASM_INS_flags_set
     __swig_getmethods__["flags"] = _pySRDF.DISASM_INS_flags_get
     if _newclass:flags = _swig_property(_pySRDF.DISASM_INS_flags_get, _pySRDF.DISASM_INS_flags_set)
@@ -1070,6 +1100,54 @@ class DIRTYPAGES_STRUCT(_object):
     __del__ = lambda self : None;
 DIRTYPAGES_STRUCT_swigregister = _pySRDF.DIRTYPAGES_STRUCT_swigregister
 DIRTYPAGES_STRUCT_swigregister(DIRTYPAGES_STRUCT)
+
+class DIRTYPAGES_STRUCTArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DIRTYPAGES_STRUCTArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DIRTYPAGES_STRUCTArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.DIRTYPAGES_STRUCTArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.DIRTYPAGES_STRUCTArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.DIRTYPAGES_STRUCTArray_data_get, _pySRDF.DIRTYPAGES_STRUCTArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_DIRTYPAGES_STRUCTArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.DIRTYPAGES_STRUCTArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.DIRTYPAGES_STRUCTArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.DIRTYPAGES_STRUCTArray_additem(self, *args)
+    def clear(self): return _pySRDF.DIRTYPAGES_STRUCTArray_clear(self)
+    def __len__(self): return _pySRDF.DIRTYPAGES_STRUCTArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.DIRTYPAGES_STRUCTArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_DIRTYPAGES_STRUCTArray
+    __del__ = lambda self : None;
+DIRTYPAGES_STRUCTArray_swigregister = _pySRDF.DIRTYPAGES_STRUCTArray_swigregister
+DIRTYPAGES_STRUCTArray_swigregister(DIRTYPAGES_STRUCTArray)
+
+class MEMORY_STRUCTArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MEMORY_STRUCTArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, MEMORY_STRUCTArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.MEMORY_STRUCTArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.MEMORY_STRUCTArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.MEMORY_STRUCTArray_data_get, _pySRDF.MEMORY_STRUCTArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_MEMORY_STRUCTArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.MEMORY_STRUCTArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.MEMORY_STRUCTArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.MEMORY_STRUCTArray_additem(self, *args)
+    def clear(self): return _pySRDF.MEMORY_STRUCTArray_clear(self)
+    def __len__(self): return _pySRDF.MEMORY_STRUCTArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.MEMORY_STRUCTArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_MEMORY_STRUCTArray
+    __del__ = lambda self : None;
+MEMORY_STRUCTArray_swigregister = _pySRDF.MEMORY_STRUCTArray_swigregister
+MEMORY_STRUCTArray_swigregister(MEMORY_STRUCTArray)
 
 class Emulator(_object):
     __swig_setmethods__ = {}

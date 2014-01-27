@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "pySRDF.h"
 #include <Shlobj.h>
+
 using namespace std;
 Disasm::Disasm()
 {
@@ -18,7 +19,7 @@ DISASM_INS* Disasm::disasm (char bytes[])
 	memset(&temp_ins,0,sizeof(DISASM_INSTRUCTION));
 	dis->Disassemble(bytes,&temp_ins);
 	DWORD len;
-	ins->tostr = dis->Disassemble(bytes,len);
+	ins->ins = dis->Disassemble(bytes,len);
 	ins->cmd = (char*)temp_ins.opcode->c_str();
 	ins->opcode = temp_ins.hde.opcode;
 	ins->opcode2 = temp_ins.hde.opcode2;
@@ -31,8 +32,8 @@ DISASM_INS* Disasm::disasm (char bytes[])
 	ins->modrm.length = temp_ins.modrm.length;
 	for (int i = 0;i < 3;i++)
 	{
-		ins->modrm.items[i] = temp_ins.modrm.items[i];
-		ins->modrm.flags[i] = temp_ins.modrm.flags[i];
+		ins->modrm.__items__[i] = temp_ins.modrm.items[i];
+		ins->modrm.__flags__[i] = temp_ins.modrm.flags[i];
 	}
 	return ins;
 }

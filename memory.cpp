@@ -13,7 +13,6 @@ process::process(int processId)
 		procHandle = handle->procHandle;
 		ppeb = handle->ppeb;
 		Imagebase = handle->ImageBase;
-		cout << handle->ImageBase << "\n";
 		SizeOfImage = handle->SizeOfImage;
 		Name = handle->processName.GetChar();
 		Path = handle->processPath.GetChar();
@@ -57,6 +56,11 @@ void process::Read(DWORD startAddress,DWORD size,char **s, int *slen)
 	*slen = size;
 };
 
+DWORD process::Allocate (DWORD preferedAddress,DWORD size)
+{
+	return handle->Allocate(preferedAddress,size);
+};
+
 //==================================================================
 //Dbg
 
@@ -71,6 +75,7 @@ Dbg::Dbg(char* Filename,char* Commandline)
 	RefreshVariables();
 	Process = new process(ProcessId);
 	PE = new PEFile(Debugger->DebuggeePE);
+	dis = new Disasm();
 	LastError = -3;
 }
 
@@ -81,6 +86,7 @@ Dbg::Dbg(process* proc)
 	RefreshVariables();
 	Process = proc;
 	PE = new PEFile(proc->Path);
+	dis = new Disasm();
 	LastError = -3;
 }
 
@@ -113,10 +119,10 @@ void Dbg::RefreshVariables()
 	edi = Debugger->Reg[7];
 	EFlags = Debugger->EFlags;
 	eip = Debugger->Eip;
-	DebugStatus = DebugStatus;
-	ProcessId = ProcessId;
-	ThreadId = ThreadId;
-	ExceptionCode = ExceptionCode;
+	DebugStatus = Debugger->DebugStatus;
+	ProcessId = Debugger->ProcessId;
+	ThreadId = Debugger->ThreadId;
+	ExceptionCode = Debugger->ExceptionCode;
 	
 }
 
@@ -187,6 +193,12 @@ BOOL Dbg::SetMemoryBp(DWORD Address,DWORD Size, DWORD Type)
 void Dbg::RemoveMemoryBp(DWORD Address)
 {
 	Debugger->RemoveMemoryBreakpoint(Address);
+}
+
+DISASM_INS* Dbg::disasm(DWORD vAddr)
+{
+	DWORD Addr = Process->handle->Read(vAddr,16);
+	return dis->disasm((char*)Addr);
 }
 
 char* Dbg::GetLastError()

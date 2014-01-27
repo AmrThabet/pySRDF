@@ -309,8 +309,8 @@ public:
 	process(int processId);
 	~process();
 	void Read(DWORD startAddress,DWORD size,char **s, int *slen);
-	char* Allocate (DWORD preferedAddress,DWORD size){return (char*)handle->Allocate(preferedAddress,size);};
-	void Write(DWORD startAddressToWrite ,DWORD buffer ,DWORD sizeToWrite){handle->Write(startAddressToWrite,buffer,sizeToWrite);};
+	DWORD Allocate (DWORD preferedAddress,DWORD size);
+	void Write(DWORD startAddressToWrite ,char* buffer ,DWORD sizeToWrite){handle->Write(startAddressToWrite,(DWORD)buffer,sizeToWrite);};
 	void DllInject(char* DLLFilename){handle->DllInject(DLLFilename);};
 	void CreateThread(DWORD addressToFunction , DWORD addressToParameter){handle->CreateThread(addressToFunction,addressToParameter);};
 	bool DumpProcess(char* Filename, DWORD Entrypoint, DWORD ImportUnloadingType){return handle->DumpProcess(Filename,Entrypoint,ImportUnloadingType);}; // Entrypoint == 0 means the same Entrypoint, ImportUnloadingType == PROC_DUMP_ZEROIMPORTTABLE or PROC_DUMP_UNLOADIMPORTTABLE
@@ -329,6 +329,8 @@ public:
 #define DBG_STATUS_ERROR			-1
 #define DBG_STATUS_INTERNAL_ERROR	-2
 #define DBG_STATUS_DIDNT_STARTED	-3
+
+
 #define DBG_CODE		0 
 #define DBG_READWRITE	1
 #define DBG_WRITE		3
@@ -339,6 +341,9 @@ public:
 
 
 #else
+class Disasm;
+struct DISASM_INS;
+
 class cDbg : public cDebugger
 {
 public:
@@ -360,6 +365,7 @@ class Dbg
 	void UpdateRegisters();
 	cDbg* Debugger;
 	int LastError;
+	Disasm* dis;
 public:
 	//variables
 	BOOL IsDebugging;
@@ -395,6 +401,7 @@ public:
 	BOOL SetMemoryBp(DWORD Address,DWORD Size, DWORD Type);
 	void RemoveMemoryBp(DWORD Address);
 	char* GetLastError();
+	DISASM_INS* disasm(DWORD vAddr);
 };
 
 //======================================================================================================
@@ -486,10 +493,26 @@ public:
 
 
 #endif
-
+ struct MODRM{
+        int length;
+        int __items__[3];
+        int __flags__[3];
+		inline int items(int i) const throw(std::out_of_range)
+		{
+			if (i >= 3 || i < 0)
+			  throw std::out_of_range("out of bounds access");
+			return __items__[i];
+		};
+		inline int flags(int i) const throw(std::out_of_range)
+		{
+			if (i >= 3 || i < 0)
+			  throw std::out_of_range("out of bounds access");
+			return __flags__[i];
+		};
+    }; 
 struct DISASM_INS
 {
-	char* tostr;
+	char* ins;
     int length;
     char* cmd;
 	int opcode;		//The opcode value
@@ -497,11 +520,7 @@ struct DISASM_INS
     int dest;
     int src;
     int other;      //used for mul to save the imm and used for any call to api to save the index of the api(it's num in APITable)
-    struct {
-            int length;
-            int items[3];
-            int flags[3];
-    } modrm;
+    MODRM modrm;
     int flags;
 	DWORD category;
 };
@@ -563,6 +582,8 @@ struct DIRTYPAGES_STRUCT         //the changes in the memory during the emulatio
        DWORD Flags;
 }; 
 
+%template (DIRTYPAGES_STRUCTArray) array<DIRTYPAGES_STRUCT*>;
+%template (MEMORY_STRUCTArray) array<MEMORY_STRUCT*>;
 #endif
 class Emulator
 {
@@ -594,7 +615,6 @@ public:
 	int Run(char* LogFile);
 	int Step();
 	int SetBp(char* Breakpoint);
-	//int SetBreakpoint(char* FuncName,DWORD BreakpointFunc);
 	void RemoveBp(int index);
 	array<DIRTYPAGES_STRUCT*> GetDirtyPages();
 	array<MEMORY_STRUCT*> GetMemoryPage();
