@@ -71,6 +71,7 @@ void PEFile::AnalyzeFile()
 		return;
 	}
 }
+
 PEFile::~PEFile()
 {
 	delete handle;

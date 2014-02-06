@@ -61,6 +61,39 @@ DWORD process::Allocate (DWORD preferedAddress,DWORD size)
 	return handle->Allocate(preferedAddress,size);
 };
 
+array<SEARCH_FOUND*> process::Search(char* StringToSearch)
+{
+	cString Signature = StringToSearch;
+	Signature.Replace(':',' ');
+	cYaraScanner* YaraScan = new cYaraScanner();
+	
+	array<SEARCH_FOUND*> found;
+	found.init(sizeof(SEARCH_FOUND));
+
+	cString Rule = YaraScan->CreateRule("ProcessSearch",Signature);
+	int x = YaraScan->AddRule(Rule);
+	for (int i=0 ; i<(int)(handle->MemoryMap.GetNumberOfItems()) ;i++)
+	{
+		MEMORY_MAP* MemMap =  (MEMORY_MAP*)handle->MemoryMap.GetItem(i);
+		unsigned char* Address = (unsigned char*)handle->Read(MemMap->Address,MemMap->Size);
+		if (Address == NULL)continue;
+		cList* Results = YaraScan->Scan(Address,MemMap->Size);
+		if (Results == NULL)continue;
+		_YARA_RESULT* Result = (_YARA_RESULT*)Results->GetItem(0);
+		if (Result == NULL)continue;
+		//cout << Result->Matches->GetNumberOfItems() << "\n";
+		for (int l = 0; l < Result->Matches->GetNumberOfItems();l++)
+		{
+			SEARCH_FOUND item = {0};
+			MSTRING* Match = (MSTRING*)Result->Matches->GetItem(l);
+			//cout << "FOUND: " << (int*)(MemMap->Address + Match->offset) << "\n";
+			item.Address = MemMap->Address + Match->offset;
+			item.Allocationbase = MemMap->Address;
+			found.additem(&item);
+		}
+	}
+	return found;
+}
 //==================================================================
 //Dbg
 

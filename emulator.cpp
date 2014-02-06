@@ -77,6 +77,7 @@ Emulator::Emulator(char *FileName)
 	dis = new Disasm();
 	Imagebase = emu->GetImagebase();
 	RefreshRegisters();
+	MaxIterations = 1000000;
 }
 
 Emulator::Emulator(char *buff,int size)
@@ -89,11 +90,13 @@ Emulator::Emulator(char *buff,int size)
 	Imagebase = emu->GetImagebase();
 	RefreshRegisters();
 	LastError = -1;
+	MaxIterations = 1000000;
 }
 
 int Emulator::Run()
 {
 	UpdateRegisters();
+	emu->MaxIteration = MaxIterations;
 	LastError = emu->Emulate();
 	RefreshRegisters();
 	return LastError;
@@ -123,7 +126,7 @@ int Emulator::SetBp(char* Breakpoint)
 	}
 	catch(int x)
 	{
-		cout << emu->process->debugger->GetLastError().c_str() << "\n";
+		set_err(emu->process->debugger->GetLastError().c_str());
 		return -1;
 	}
 }
@@ -250,6 +253,38 @@ void Emulator::UpdateRegisters()
 	emu->SetEFLAGS(EFlags);
 }
 
+array<SEARCH_FOUND*> Emulator::Search(char* StringToSearch)
+{
+	cString Signature = StringToSearch;
+	Signature.Replace(':',' ');
+	cYaraScanner* YaraScan = new cYaraScanner();
+	
+	array<SEARCH_FOUND*> found;
+	found.init(sizeof(SEARCH_FOUND));
+
+	cString Rule = YaraScan->CreateRule("ProcessSearch",Signature);
+	int x = YaraScan->AddRule(Rule);
+	for (int i=0 ; i<(int)(emu->GetNumberOfMemoryPages()) ;i++)
+	{
+		MEMORY_STRUCT* MemMap =  (MEMORY_STRUCT*)emu->GetMemoryPage(i);
+		unsigned char* Address = (unsigned char*)MemMap->RealAddr;
+		cList* Results = YaraScan->Scan(Address,MemMap->Size);
+		if (Results == NULL)continue;
+		_YARA_RESULT* Result = (_YARA_RESULT*)Results->GetItem(0);
+		if (Result == NULL)continue;
+		for (int l = 0; l < Result->Matches->GetNumberOfItems();l++)
+		{
+			SEARCH_FOUND item = {0};
+			MSTRING* Match = (MSTRING*)Result->Matches->GetItem(l);
+			//cout << "FOUND: " << (int*)(MemMap->VirtualAddr + Match->offset) << "\n";
+			item.Address = MemMap->VirtualAddr + Match->offset;
+			item.Allocationbase = MemMap->VirtualAddr;
+			found.additem(&item);
+		}
+	}
+	return found;
+}
+
 char* Emulator::GetLastError()
 {
 	switch(LastError)
@@ -277,3 +312,4 @@ char* Emulator::GetLastError()
 	}
 	return "no error";
 }
+

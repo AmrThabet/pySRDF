@@ -79,3 +79,31 @@ if not ins.flags & SRC_NOSRC:
         print "SRC : Register and its No. %d " % ins.src
     else:
          print "SRC : Immediate and equal to " % ins.nsrc
+
+#The Instruction Category:
+
+print ins.category
+
+'''
+Should the result become one of:
+
+
+OP_TYPE_I386 => 0x00000001
+OP_TYPE_FPU => 0x00000002
+OP_TYPE_MMX => 0x00000004
+OP_TYPE_SSE => 0x00000008
+
+
+OP_TYPE_ARTHIMETIC1 => 0x00000010                add,sub,xor,or,shl,shr,and,ror,rol and the same for fpu,mmx
+OP_TYPE_ARTHIMETIC2 => 0x00000020                mul,div ...
+OP_TYPE_ARTHIMETIC3 => 0x00000040                all complex fpu mathimatics
+OP_TYPE_FLOW_REDIRECTION => 0x00000080           like call,jmp,jcc, ...
+OP_TYPE_FLAG_TEST => 0x000000C0                  cmp,test, or ... 
+OP_TYPE_PRIVILEDGE => 0x00000100                 like in,out ...
+OP_TYPE_DATA_MANIPULATE => 0x00000200            movs, lods,stos,xchg, lea ... (not included xadd)
+OP_TYPE_FLAG_MANIPULATE => 0x00000400            like cli,sti ...
+OP_TYPE_NOP  => 0x00000800                       nop instructions
+OP_TYPE_ARTIMITIC1_FLAGS => 0x00000C10           it's a part of Arthimitic 1 and it's like adc ...
+OP_TYPE_UNKNOWN_BEHAVIOR => 0x00001000           like jp, aad,daa ... 
+OP_TYPE_STACK_MANIPULATE  => 0x00002000          like push, pop ..
+'''

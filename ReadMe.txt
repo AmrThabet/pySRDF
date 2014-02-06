@@ -33,7 +33,8 @@ To use it ... just ensure that you have the binary files:
 4. X86 Emulator.dll
 5. sqlite3.dll
 
-and install SWIG from: http://prdownloads.sourceforge.net/swig/swigwin-2.0.11.zip
+Download SWIG from: http://prdownloads.sourceforge.net/swig/swigwin-2.0.11.zip
+and install SWIG using this command: python setup.py install
 
 and it should work fine
 

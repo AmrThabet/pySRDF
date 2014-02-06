@@ -77,6 +77,10 @@ set_err = _pySRDF.set_err
 def err_occurred():
   return _pySRDF.err_occurred()
 err_occurred = _pySRDF.err_occurred
+
+def addattr(*args):
+  return _pySRDF.addattr(*args)
+addattr = _pySRDF.addattr
 IMAGE_SCN_MEM_EXECUTE = _pySRDF.IMAGE_SCN_MEM_EXECUTE
 IMAGE_SCN_MEM_READ = _pySRDF.IMAGE_SCN_MEM_READ
 IMAGE_SCN_MEM_WRITE = _pySRDF.IMAGE_SCN_MEM_WRITE
@@ -662,6 +666,30 @@ class MODULEINFOArray(_object):
 MODULEINFOArray_swigregister = _pySRDF.MODULEINFOArray_swigregister
 MODULEINFOArray_swigregister(MODULEINFOArray)
 
+class SEARCH_FOUNDArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SEARCH_FOUNDArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, SEARCH_FOUNDArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.SEARCH_FOUNDArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.SEARCH_FOUNDArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.SEARCH_FOUNDArray_data_get, _pySRDF.SEARCH_FOUNDArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_SEARCH_FOUNDArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.SEARCH_FOUNDArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.SEARCH_FOUNDArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.SEARCH_FOUNDArray_additem(self, *args)
+    def clear(self): return _pySRDF.SEARCH_FOUNDArray_clear(self)
+    def __len__(self): return _pySRDF.SEARCH_FOUNDArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.SEARCH_FOUNDArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_SEARCH_FOUNDArray
+    __del__ = lambda self : None;
+SEARCH_FOUNDArray_swigregister = _pySRDF.SEARCH_FOUNDArray_swigregister
+SEARCH_FOUNDArray_swigregister(SEARCH_FOUNDArray)
+
 class MODULEINFO(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MODULEINFO, name, value)
@@ -694,6 +722,27 @@ class MODULEINFO(_object):
     __del__ = lambda self : None;
 MODULEINFO_swigregister = _pySRDF.MODULEINFO_swigregister
 MODULEINFO_swigregister(MODULEINFO)
+
+class SEARCH_FOUND(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SEARCH_FOUND, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, SEARCH_FOUND, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["Address"] = _pySRDF.SEARCH_FOUND_Address_set
+    __swig_getmethods__["Address"] = _pySRDF.SEARCH_FOUND_Address_get
+    if _newclass:Address = _swig_property(_pySRDF.SEARCH_FOUND_Address_get, _pySRDF.SEARCH_FOUND_Address_set)
+    __swig_setmethods__["Allocationbase"] = _pySRDF.SEARCH_FOUND_Allocationbase_set
+    __swig_getmethods__["Allocationbase"] = _pySRDF.SEARCH_FOUND_Allocationbase_get
+    if _newclass:Allocationbase = _swig_property(_pySRDF.SEARCH_FOUND_Allocationbase_get, _pySRDF.SEARCH_FOUND_Allocationbase_set)
+    def __init__(self): 
+        this = _pySRDF.new_SEARCH_FOUND()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_SEARCH_FOUND
+    __del__ = lambda self : None;
+SEARCH_FOUND_swigregister = _pySRDF.SEARCH_FOUND_swigregister
+SEARCH_FOUND_swigregister(SEARCH_FOUND)
 
 class process(_object):
     __swig_setmethods__ = {}
@@ -759,6 +808,7 @@ class process(_object):
     def DllInject(self, *args): return _pySRDF.process_DllInject(self, *args)
     def CreateThread(self, *args): return _pySRDF.process_CreateThread(self, *args)
     def DumpProcess(self, *args): return _pySRDF.process_DumpProcess(self, *args)
+    def Search(self, *args): return _pySRDF.process_Search(self, *args)
 process_swigregister = _pySRDF.process_swigregister
 process_swigregister(process)
 
@@ -915,30 +965,6 @@ OP_TYPE_NOP = _pySRDF.OP_TYPE_NOP
 OP_TYPE_ARTIMITIC1_FLAGS = _pySRDF.OP_TYPE_ARTIMITIC1_FLAGS
 OP_TYPE_UNKNOWN_BEHAVIOR = _pySRDF.OP_TYPE_UNKNOWN_BEHAVIOR
 OP_TYPE_STACK_MANIPULATE = _pySRDF.OP_TYPE_STACK_MANIPULATE
-class intArray(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, intArray, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, intArray, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["data"] = _pySRDF.intArray_data_set
-    __swig_getmethods__["data"] = _pySRDF.intArray_data_get
-    if _newclass:data = _swig_property(_pySRDF.intArray_data_get, _pySRDF.intArray_data_set)
-    def __init__(self, *args): 
-        this = _pySRDF.new_intArray(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    def init(self, *args): return _pySRDF.intArray_init(self, *args)
-    def setvalues(self, *args): return _pySRDF.intArray_setvalues(self, *args)
-    def additem(self, *args): return _pySRDF.intArray_additem(self, *args)
-    def clear(self): return _pySRDF.intArray_clear(self)
-    def __len__(self): return _pySRDF.intArray___len__(self)
-    def __getitem__(self, *args): return _pySRDF.intArray___getitem__(self, *args)
-    __swig_destroy__ = _pySRDF.delete_intArray
-    __del__ = lambda self : None;
-intArray_swigregister = _pySRDF.intArray_swigregister
-intArray_swigregister(intArray)
-
 class MODRM(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MODRM, name, value)
@@ -1191,12 +1217,16 @@ class Emulator(_object):
     __swig_setmethods__["Imagebase"] = _pySRDF.Emulator_Imagebase_set
     __swig_getmethods__["Imagebase"] = _pySRDF.Emulator_Imagebase_get
     if _newclass:Imagebase = _swig_property(_pySRDF.Emulator_Imagebase_get, _pySRDF.Emulator_Imagebase_set)
+    __swig_setmethods__["MaxIterations"] = _pySRDF.Emulator_MaxIterations_set
+    __swig_getmethods__["MaxIterations"] = _pySRDF.Emulator_MaxIterations_get
+    if _newclass:MaxIterations = _swig_property(_pySRDF.Emulator_MaxIterations_get, _pySRDF.Emulator_MaxIterations_set)
     def __init__(self, *args): 
         this = _pySRDF.new_Emulator(*args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _pySRDF.delete_Emulator
     __del__ = lambda self : None;
+    def Search(self, *args): return _pySRDF.Emulator_Search(self, *args)
     def Run(self, *args): return _pySRDF.Emulator_Run(self, *args)
     def Step(self): return _pySRDF.Emulator_Step(self)
     def SetBp(self, *args): return _pySRDF.Emulator_SetBp(self, *args)
@@ -1215,6 +1245,535 @@ class Emulator(_object):
     def GetLastError(self): return _pySRDF.Emulator_GetLastError(self)
 Emulator_swigregister = _pySRDF.Emulator_swigregister
 Emulator_swigregister(Emulator)
+
+class YARA_SEARCHArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, YARA_SEARCHArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, YARA_SEARCHArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.YARA_SEARCHArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.YARA_SEARCHArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.YARA_SEARCHArray_data_get, _pySRDF.YARA_SEARCHArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_YARA_SEARCHArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.YARA_SEARCHArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.YARA_SEARCHArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.YARA_SEARCHArray_additem(self, *args)
+    def clear(self): return _pySRDF.YARA_SEARCHArray_clear(self)
+    def __len__(self): return _pySRDF.YARA_SEARCHArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.YARA_SEARCHArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_YARA_SEARCHArray
+    __del__ = lambda self : None;
+YARA_SEARCHArray_swigregister = _pySRDF.YARA_SEARCHArray_swigregister
+YARA_SEARCHArray_swigregister(YARA_SEARCHArray)
+
+class YARA_SEARCH(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, YARA_SEARCH, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, YARA_SEARCH, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["Offset"] = _pySRDF.YARA_SEARCH_Offset_set
+    __swig_getmethods__["Offset"] = _pySRDF.YARA_SEARCH_Offset_get
+    if _newclass:Offset = _swig_property(_pySRDF.YARA_SEARCH_Offset_get, _pySRDF.YARA_SEARCH_Offset_set)
+    __swig_setmethods__["Name"] = _pySRDF.YARA_SEARCH_Name_set
+    __swig_getmethods__["Name"] = _pySRDF.YARA_SEARCH_Name_get
+    if _newclass:Name = _swig_property(_pySRDF.YARA_SEARCH_Name_get, _pySRDF.YARA_SEARCH_Name_set)
+    def __init__(self): 
+        this = _pySRDF.new_YARA_SEARCH()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_YARA_SEARCH
+    __del__ = lambda self : None;
+YARA_SEARCH_swigregister = _pySRDF.YARA_SEARCH_swigregister
+YARA_SEARCH_swigregister(YARA_SEARCH)
+
+class YaraScanner(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, YaraScanner, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, YaraScanner, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        this = _pySRDF.new_YaraScanner()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_YaraScanner
+    __del__ = lambda self : None;
+    def AddRule(self, *args): return _pySRDF.YaraScanner_AddRule(self, *args)
+    def Search(self, *args): return _pySRDF.YaraScanner_Search(self, *args)
+YaraScanner_swigregister = _pySRDF.YaraScanner_swigregister
+YaraScanner_swigregister(YaraScanner)
+
+
+def ssdeep(*args):
+  return _pySRDF.ssdeep(*args)
+ssdeep = _pySRDF.ssdeep
+
+def ssdeepcompare(*args):
+  return _pySRDF.ssdeepcompare(*args)
+ssdeepcompare = _pySRDF.ssdeepcompare
+
+def md5(*args):
+  return _pySRDF.md5(*args)
+md5 = _pySRDF.md5
+PARAMTYPE_DWORD = _pySRDF.PARAMTYPE_DWORD
+PARAMTYPE_STRING = _pySRDF.PARAMTYPE_STRING
+PARAMTYPE_MAC = _pySRDF.PARAMTYPE_MAC
+CONN_NETWORK_UNKNOWN = _pySRDF.CONN_NETWORK_UNKNOWN
+CONN_NETWORK_ETHERNET = _pySRDF.CONN_NETWORK_ETHERNET
+CONN_NETWORK_SSL = _pySRDF.CONN_NETWORK_SSL
+CONN_TRANSPORT_UNKNOWN = _pySRDF.CONN_TRANSPORT_UNKNOWN
+CONN_TRANSPORT_TCP = _pySRDF.CONN_TRANSPORT_TCP
+CONN_TRANSPORT_UDP = _pySRDF.CONN_TRANSPORT_UDP
+CONN_TRANSPORT_ICMP = _pySRDF.CONN_TRANSPORT_ICMP
+CONN_TRANSPORT_IGMP = _pySRDF.CONN_TRANSPORT_IGMP
+CONN_ADDRESSING_UNKOWN = _pySRDF.CONN_ADDRESSING_UNKOWN
+CONN_ADDRESSING_ARP = _pySRDF.CONN_ADDRESSING_ARP
+CONN_ADDRESSING_IP = _pySRDF.CONN_ADDRESSING_IP
+CONN_APPLICATION_UNKOWN = _pySRDF.CONN_APPLICATION_UNKOWN
+CONN_APPLICATION_DNS = _pySRDF.CONN_APPLICATION_DNS
+CONN_APPLICATION_HTTP = _pySRDF.CONN_APPLICATION_HTTP
+GENERATE_TCP = _pySRDF.GENERATE_TCP
+GENERATE_UDP = _pySRDF.GENERATE_UDP
+GENERATE_ARP = _pySRDF.GENERATE_ARP
+GENERATE_ICMP = _pySRDF.GENERATE_ICMP
+TCP_ACK = _pySRDF.TCP_ACK
+TCP_SYN = _pySRDF.TCP_SYN
+TCP_FIN = _pySRDF.TCP_FIN
+TCP_RST = _pySRDF.TCP_RST
+TCP_PSH = _pySRDF.TCP_PSH
+TCP_URG = _pySRDF.TCP_URG
+class SessionArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SessionArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, SessionArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.SessionArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.SessionArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.SessionArray_data_get, _pySRDF.SessionArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_SessionArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.SessionArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.SessionArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.SessionArray_additem(self, *args)
+    def clear(self): return _pySRDF.SessionArray_clear(self)
+    def __len__(self): return _pySRDF.SessionArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.SessionArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_SessionArray
+    __del__ = lambda self : None;
+SessionArray_swigregister = _pySRDF.SessionArray_swigregister
+SessionArray_swigregister(SessionArray)
+
+class CONN_PARAMArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CONN_PARAMArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, CONN_PARAMArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.CONN_PARAMArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.CONN_PARAMArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.CONN_PARAMArray_data_get, _pySRDF.CONN_PARAMArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_CONN_PARAMArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.CONN_PARAMArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.CONN_PARAMArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.CONN_PARAMArray_additem(self, *args)
+    def clear(self): return _pySRDF.CONN_PARAMArray_clear(self)
+    def __len__(self): return _pySRDF.CONN_PARAMArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.CONN_PARAMArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_CONN_PARAMArray
+    __del__ = lambda self : None;
+CONN_PARAMArray_swigregister = _pySRDF.CONN_PARAMArray_swigregister
+CONN_PARAMArray_swigregister(CONN_PARAMArray)
+
+class IP_INTArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, IP_INTArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, IP_INTArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.IP_INTArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.IP_INTArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.IP_INTArray_data_get, _pySRDF.IP_INTArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_IP_INTArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.IP_INTArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.IP_INTArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.IP_INTArray_additem(self, *args)
+    def clear(self): return _pySRDF.IP_INTArray_clear(self)
+    def __len__(self): return _pySRDF.IP_INTArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.IP_INTArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_IP_INTArray
+    __del__ = lambda self : None;
+IP_INTArray_swigregister = _pySRDF.IP_INTArray_swigregister
+IP_INTArray_swigregister(IP_INTArray)
+
+class STRING_STRUCTArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, STRING_STRUCTArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, STRING_STRUCTArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.STRING_STRUCTArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.STRING_STRUCTArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.STRING_STRUCTArray_data_get, _pySRDF.STRING_STRUCTArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_STRING_STRUCTArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.STRING_STRUCTArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.STRING_STRUCTArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.STRING_STRUCTArray_additem(self, *args)
+    def clear(self): return _pySRDF.STRING_STRUCTArray_clear(self)
+    def __len__(self): return _pySRDF.STRING_STRUCTArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.STRING_STRUCTArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_STRING_STRUCTArray
+    __del__ = lambda self : None;
+STRING_STRUCTArray_swigregister = _pySRDF.STRING_STRUCTArray_swigregister
+STRING_STRUCTArray_swigregister(STRING_STRUCTArray)
+
+class REQUESTSArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, REQUESTSArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, REQUESTSArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.REQUESTSArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.REQUESTSArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.REQUESTSArray_data_get, _pySRDF.REQUESTSArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_REQUESTSArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.REQUESTSArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.REQUESTSArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.REQUESTSArray_additem(self, *args)
+    def clear(self): return _pySRDF.REQUESTSArray_clear(self)
+    def __len__(self): return _pySRDF.REQUESTSArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.REQUESTSArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_REQUESTSArray
+    __del__ = lambda self : None;
+REQUESTSArray_swigregister = _pySRDF.REQUESTSArray_swigregister
+REQUESTSArray_swigregister(REQUESTSArray)
+
+class HASH_STRUCTArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HASH_STRUCTArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, HASH_STRUCTArray, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _pySRDF.HASH_STRUCTArray_data_set
+    __swig_getmethods__["data"] = _pySRDF.HASH_STRUCTArray_data_get
+    if _newclass:data = _swig_property(_pySRDF.HASH_STRUCTArray_data_get, _pySRDF.HASH_STRUCTArray_data_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_HASH_STRUCTArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def init(self, *args): return _pySRDF.HASH_STRUCTArray_init(self, *args)
+    def setvalues(self, *args): return _pySRDF.HASH_STRUCTArray_setvalues(self, *args)
+    def additem(self, *args): return _pySRDF.HASH_STRUCTArray_additem(self, *args)
+    def clear(self): return _pySRDF.HASH_STRUCTArray_clear(self)
+    def __len__(self): return _pySRDF.HASH_STRUCTArray___len__(self)
+    def __getitem__(self, *args): return _pySRDF.HASH_STRUCTArray___getitem__(self, *args)
+    __swig_destroy__ = _pySRDF.delete_HASH_STRUCTArray
+    __del__ = lambda self : None;
+HASH_STRUCTArray_swigregister = _pySRDF.HASH_STRUCTArray_swigregister
+HASH_STRUCTArray_swigregister(HASH_STRUCTArray)
+
+class IP_INT(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, IP_INT, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, IP_INT, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["IP"] = _pySRDF.IP_INT_IP_set
+    __swig_getmethods__["IP"] = _pySRDF.IP_INT_IP_get
+    if _newclass:IP = _swig_property(_pySRDF.IP_INT_IP_get, _pySRDF.IP_INT_IP_set)
+    def __init__(self): 
+        this = _pySRDF.new_IP_INT()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_IP_INT
+    __del__ = lambda self : None;
+IP_INT_swigregister = _pySRDF.IP_INT_swigregister
+IP_INT_swigregister(IP_INT)
+
+class STRING_STRUCT(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, STRING_STRUCT, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, STRING_STRUCT, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["Value"] = _pySRDF.STRING_STRUCT_Value_set
+    __swig_getmethods__["Value"] = _pySRDF.STRING_STRUCT_Value_get
+    if _newclass:Value = _swig_property(_pySRDF.STRING_STRUCT_Value_get, _pySRDF.STRING_STRUCT_Value_set)
+    def __init__(self): 
+        this = _pySRDF.new_STRING_STRUCT()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_STRING_STRUCT
+    __del__ = lambda self : None;
+STRING_STRUCT_swigregister = _pySRDF.STRING_STRUCT_swigregister
+STRING_STRUCT_swigregister(STRING_STRUCT)
+
+class DNS_STRUCT(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DNS_STRUCT, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DNS_STRUCT, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["RequestedDomain"] = _pySRDF.DNS_STRUCT_RequestedDomain_set
+    __swig_getmethods__["RequestedDomain"] = _pySRDF.DNS_STRUCT_RequestedDomain_get
+    if _newclass:RequestedDomain = _swig_property(_pySRDF.DNS_STRUCT_RequestedDomain_get, _pySRDF.DNS_STRUCT_RequestedDomain_set)
+    __swig_setmethods__["DomainIsFound"] = _pySRDF.DNS_STRUCT_DomainIsFound_set
+    __swig_getmethods__["DomainIsFound"] = _pySRDF.DNS_STRUCT_DomainIsFound_get
+    if _newclass:DomainIsFound = _swig_property(_pySRDF.DNS_STRUCT_DomainIsFound_get, _pySRDF.DNS_STRUCT_DomainIsFound_set)
+    __swig_setmethods__["ResolvedIPs"] = _pySRDF.DNS_STRUCT_ResolvedIPs_set
+    __swig_getmethods__["ResolvedIPs"] = _pySRDF.DNS_STRUCT_ResolvedIPs_get
+    if _newclass:ResolvedIPs = _swig_property(_pySRDF.DNS_STRUCT_ResolvedIPs_get, _pySRDF.DNS_STRUCT_ResolvedIPs_set)
+    def __init__(self): 
+        this = _pySRDF.new_DNS_STRUCT()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_DNS_STRUCT
+    __del__ = lambda self : None;
+DNS_STRUCT_swigregister = _pySRDF.DNS_STRUCT_swigregister
+DNS_STRUCT_swigregister(DNS_STRUCT)
+
+class HASH_STRUCT(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HASH_STRUCT, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, HASH_STRUCT, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["Key"] = _pySRDF.HASH_STRUCT_Key_set
+    __swig_getmethods__["Key"] = _pySRDF.HASH_STRUCT_Key_get
+    if _newclass:Key = _swig_property(_pySRDF.HASH_STRUCT_Key_get, _pySRDF.HASH_STRUCT_Key_set)
+    __swig_setmethods__["Value"] = _pySRDF.HASH_STRUCT_Value_set
+    __swig_getmethods__["Value"] = _pySRDF.HASH_STRUCT_Value_get
+    if _newclass:Value = _swig_property(_pySRDF.HASH_STRUCT_Value_get, _pySRDF.HASH_STRUCT_Value_set)
+    def __init__(self): 
+        this = _pySRDF.new_HASH_STRUCT()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_HASH_STRUCT
+    __del__ = lambda self : None;
+HASH_STRUCT_swigregister = _pySRDF.HASH_STRUCT_swigregister
+HASH_STRUCT_swigregister(HASH_STRUCT)
+
+class REQUESTS(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, REQUESTS, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, REQUESTS, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["RequestType"] = _pySRDF.REQUESTS_RequestType_set
+    __swig_getmethods__["RequestType"] = _pySRDF.REQUESTS_RequestType_get
+    if _newclass:RequestType = _swig_property(_pySRDF.REQUESTS_RequestType_get, _pySRDF.REQUESTS_RequestType_set)
+    __swig_setmethods__["Address"] = _pySRDF.REQUESTS_Address_set
+    __swig_getmethods__["Address"] = _pySRDF.REQUESTS_Address_get
+    if _newclass:Address = _swig_property(_pySRDF.REQUESTS_Address_get, _pySRDF.REQUESTS_Address_set)
+    __swig_setmethods__["Arguments"] = _pySRDF.REQUESTS_Arguments_set
+    __swig_getmethods__["Arguments"] = _pySRDF.REQUESTS_Arguments_get
+    if _newclass:Arguments = _swig_property(_pySRDF.REQUESTS_Arguments_get, _pySRDF.REQUESTS_Arguments_set)
+    __swig_setmethods__["ReplyNumber"] = _pySRDF.REQUESTS_ReplyNumber_set
+    __swig_getmethods__["ReplyNumber"] = _pySRDF.REQUESTS_ReplyNumber_get
+    if _newclass:ReplyNumber = _swig_property(_pySRDF.REQUESTS_ReplyNumber_get, _pySRDF.REQUESTS_ReplyNumber_set)
+    def __init__(self): 
+        this = _pySRDF.new_REQUESTS()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_REQUESTS
+    __del__ = lambda self : None;
+REQUESTS_swigregister = _pySRDF.REQUESTS_swigregister
+REQUESTS_swigregister(REQUESTS)
+
+class HTTP_STRUCT(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HTTP_STRUCT, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, HTTP_STRUCT, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["Cookies"] = _pySRDF.HTTP_STRUCT_Cookies_set
+    __swig_getmethods__["Cookies"] = _pySRDF.HTTP_STRUCT_Cookies_get
+    if _newclass:Cookies = _swig_property(_pySRDF.HTTP_STRUCT_Cookies_get, _pySRDF.HTTP_STRUCT_Cookies_set)
+    __swig_setmethods__["UserAgent"] = _pySRDF.HTTP_STRUCT_UserAgent_set
+    __swig_getmethods__["UserAgent"] = _pySRDF.HTTP_STRUCT_UserAgent_get
+    if _newclass:UserAgent = _swig_property(_pySRDF.HTTP_STRUCT_UserAgent_get, _pySRDF.HTTP_STRUCT_UserAgent_set)
+    __swig_setmethods__["Referer"] = _pySRDF.HTTP_STRUCT_Referer_set
+    __swig_getmethods__["Referer"] = _pySRDF.HTTP_STRUCT_Referer_get
+    if _newclass:Referer = _swig_property(_pySRDF.HTTP_STRUCT_Referer_get, _pySRDF.HTTP_STRUCT_Referer_set)
+    __swig_setmethods__["ServerType"] = _pySRDF.HTTP_STRUCT_ServerType_set
+    __swig_getmethods__["ServerType"] = _pySRDF.HTTP_STRUCT_ServerType_get
+    if _newclass:ServerType = _swig_property(_pySRDF.HTTP_STRUCT_ServerType_get, _pySRDF.HTTP_STRUCT_ServerType_set)
+    __swig_setmethods__["Request"] = _pySRDF.HTTP_STRUCT_Request_set
+    __swig_getmethods__["Request"] = _pySRDF.HTTP_STRUCT_Request_get
+    if _newclass:Request = _swig_property(_pySRDF.HTTP_STRUCT_Request_get, _pySRDF.HTTP_STRUCT_Request_set)
+    __swig_setmethods__["nFiles"] = _pySRDF.HTTP_STRUCT_nFiles_set
+    __swig_getmethods__["nFiles"] = _pySRDF.HTTP_STRUCT_nFiles_get
+    if _newclass:nFiles = _swig_property(_pySRDF.HTTP_STRUCT_nFiles_get, _pySRDF.HTTP_STRUCT_nFiles_set)
+    __swig_setmethods__["Files"] = _pySRDF.HTTP_STRUCT_Files_set
+    __swig_getmethods__["Files"] = _pySRDF.HTTP_STRUCT_Files_get
+    if _newclass:Files = _swig_property(_pySRDF.HTTP_STRUCT_Files_get, _pySRDF.HTTP_STRUCT_Files_set)
+    def DumpFile(self, *args): return _pySRDF.HTTP_STRUCT_DumpFile(self, *args)
+    def __init__(self): 
+        this = _pySRDF.new_HTTP_STRUCT()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_HTTP_STRUCT
+    __del__ = lambda self : None;
+HTTP_STRUCT_swigregister = _pySRDF.HTTP_STRUCT_swigregister
+HTTP_STRUCT_swigregister(HTTP_STRUCT)
+
+class CONN_PARAM(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CONN_PARAM, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, CONN_PARAM, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["Name"] = _pySRDF.CONN_PARAM_Name_set
+    __swig_getmethods__["Name"] = _pySRDF.CONN_PARAM_Name_get
+    if _newclass:Name = _swig_property(_pySRDF.CONN_PARAM_Name_get, _pySRDF.CONN_PARAM_Name_set)
+    __swig_setmethods__["sValue"] = _pySRDF.CONN_PARAM_sValue_set
+    __swig_getmethods__["sValue"] = _pySRDF.CONN_PARAM_sValue_get
+    if _newclass:sValue = _swig_property(_pySRDF.CONN_PARAM_sValue_get, _pySRDF.CONN_PARAM_sValue_set)
+    __swig_setmethods__["nValue"] = _pySRDF.CONN_PARAM_nValue_set
+    __swig_getmethods__["nValue"] = _pySRDF.CONN_PARAM_nValue_get
+    if _newclass:nValue = _swig_property(_pySRDF.CONN_PARAM_nValue_get, _pySRDF.CONN_PARAM_nValue_set)
+    __swig_setmethods__["MAC"] = _pySRDF.CONN_PARAM_MAC_set
+    __swig_getmethods__["MAC"] = _pySRDF.CONN_PARAM_MAC_get
+    if _newclass:MAC = _swig_property(_pySRDF.CONN_PARAM_MAC_get, _pySRDF.CONN_PARAM_MAC_set)
+    __swig_setmethods__["Type"] = _pySRDF.CONN_PARAM_Type_set
+    __swig_getmethods__["Type"] = _pySRDF.CONN_PARAM_Type_get
+    if _newclass:Type = _swig_property(_pySRDF.CONN_PARAM_Type_get, _pySRDF.CONN_PARAM_Type_set)
+    def __init__(self): 
+        this = _pySRDF.new_CONN_PARAM()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_CONN_PARAM
+    __del__ = lambda self : None;
+CONN_PARAM_swigregister = _pySRDF.CONN_PARAM_swigregister
+CONN_PARAM_swigregister(CONN_PARAM)
+
+class Session(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Session, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Session, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["DNS"] = _pySRDF.Session_DNS_set
+    __swig_getmethods__["DNS"] = _pySRDF.Session_DNS_get
+    if _newclass:DNS = _swig_property(_pySRDF.Session_DNS_get, _pySRDF.Session_DNS_set)
+    __swig_setmethods__["HTTP"] = _pySRDF.Session_HTTP_set
+    __swig_getmethods__["HTTP"] = _pySRDF.Session_HTTP_get
+    if _newclass:HTTP = _swig_property(_pySRDF.Session_HTTP_get, _pySRDF.Session_HTTP_set)
+    __swig_setmethods__["__params__"] = _pySRDF.Session___params___set
+    __swig_getmethods__["__params__"] = _pySRDF.Session___params___get
+    if _newclass:__params__ = _swig_property(_pySRDF.Session___params___get, _pySRDF.Session___params___set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_Session(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_Session
+    __del__ = lambda self : None;
+    def ReadPacket(self, *args): return _pySRDF.Session_ReadPacket(self, *args)
+    def __getattr__(self,Name):
+        for param in self.__params__:
+            if param.Name == Name and param.Type == PARAMTYPE_DWORD:
+                return param.nValue
+            elif param.Name == Name and param.Type == PARAMTYPE_STRING:
+                return param.sValue
+            elif param.Name == Name and param.Type == PARAMTYPE_MAC:
+                return param.MAC
+    	if Name == "DNS" and self.ApplicationType == CONN_APPLICATION_DNS:
+    			return getattr(self,Name)
+        elif Name == "HTTP" and self.ApplicationType == CONN_APPLICATION_HTTP:
+    			return getattr(self,Name)
+
+        raise AttributeError
+
+Session_swigregister = _pySRDF.Session_swigregister
+Session_swigregister(Session)
+
+class Traffic(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Traffic, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Traffic, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["Sessions"] = _pySRDF.Traffic_Sessions_set
+    __swig_getmethods__["Sessions"] = _pySRDF.Traffic_Sessions_get
+    if _newclass:Sessions = _swig_property(_pySRDF.Traffic_Sessions_get, _pySRDF.Traffic_Sessions_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_Traffic(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_Traffic
+    __del__ = lambda self : None;
+Traffic_swigregister = _pySRDF.Traffic_swigregister
+Traffic_swigregister(Traffic)
+
+class PcapFile(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PcapFile, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, PcapFile, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["nPackets"] = _pySRDF.PcapFile_nPackets_set
+    __swig_getmethods__["nPackets"] = _pySRDF.PcapFile_nPackets_get
+    if _newclass:nPackets = _swig_property(_pySRDF.PcapFile_nPackets_get, _pySRDF.PcapFile_nPackets_set)
+    __swig_setmethods__["traffic"] = _pySRDF.PcapFile_traffic_set
+    __swig_getmethods__["traffic"] = _pySRDF.PcapFile_traffic_get
+    if _newclass:traffic = _swig_property(_pySRDF.PcapFile_traffic_get, _pySRDF.PcapFile_traffic_set)
+    def __init__(self, *args): 
+        this = _pySRDF.new_PcapFile(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pySRDF.delete_PcapFile
+    __del__ = lambda self : None;
+PcapFile_swigregister = _pySRDF.PcapFile_swigregister
+PcapFile_swigregister(PcapFile)
+
+
+def IPToString(*args):
+  return _pySRDF.IPToString(*args)
+IPToString = _pySRDF.IPToString
+
+def MACToString(*args):
+  return _pySRDF.MACToString(*args)
+MACToString = _pySRDF.MACToString
+class PacketGenerator(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PacketGenerator, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, PacketGenerator, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pySRDF.new_PacketGenerator(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def SetMACAddress(self, *args): return _pySRDF.PacketGenerator_SetMACAddress(self, *args)
+    def SetIPAddress(self, *args): return _pySRDF.PacketGenerator_SetIPAddress(self, *args)
+    def SetPorts(self, *args): return _pySRDF.PacketGenerator_SetPorts(self, *args)
+    def CustomizeTCP(self, *args): return _pySRDF.PacketGenerator_CustomizeTCP(self, *args)
+    def CustomizeUDP(self, *args): return _pySRDF.PacketGenerator_CustomizeUDP(self, *args)
+    def CustomizeICMP(self, *args): return _pySRDF.PacketGenerator_CustomizeICMP(self, *args)
+    def DumpPacket(self): return _pySRDF.PacketGenerator_DumpPacket(self)
+    __swig_destroy__ = _pySRDF.delete_PacketGenerator
+    __del__ = lambda self : None;
+PacketGenerator_swigregister = _pySRDF.PacketGenerator_swigregister
+PacketGenerator_swigregister(PacketGenerator)
 
 # This file is compatible with both classic and new-style classes.
 

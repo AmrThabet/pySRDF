@@ -22,6 +22,9 @@ void set_err(const char *msg)
     strncpy(swig_c_err_msg, msg, 256);
 }
 
+void addattr(PEFile* obj,char* name, char* value)
+{
 
+}
 
 

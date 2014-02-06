@@ -51,3 +51,9 @@ p.Write(buff,"Hello from pySRDF",len("Hello from pySRDF"))
 newbuff = p.Read(buff,30)
 
 print newbuff
+
+found = emu.Search("{CC:CC:CC:CC}")                     #an example of memory search (it could take a normal string "xxx")
+
+for item in found:
+    print "Address: %x" % item.Address
+

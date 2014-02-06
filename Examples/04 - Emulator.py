@@ -33,8 +33,11 @@ __lastmodified(0) > 0x00401000: break on last modified byte > 0x00401000
 
 #Executing the Code
 emu.Step()
+emu.MaxIteration = 1000000  # you can set maximum iterations (instructions) to emulate (default 1 million)
 emu.Run()                   # OR emu.Run("ins.log") to log all running instructions including the registers for debugging
 print emu.GetLastError()
+
+
 #Reading the Memory
 
 print "Memory Map:\n----------"
@@ -73,4 +76,9 @@ print emu.Read(emu.eip,30)
 
 #Dump File
 emu.Dump("upx_unpacked.exe",DUMP_FIXIMPORTTABLE)        #DUMP_FIXIMPORTTABLE create new import table for new APIs that was get by GetProcAddress ... other options are DUMP_ZEROIMPORTTABLE and DUMP_UNLOADIMPORTTABLE
+
+found = emu.Search("{CC:CC:CC:CC}")                     #an example of memory search (it could take a normal string "xxx")
+
+for item in found:
+    print "Address: %x" % item.Address
 

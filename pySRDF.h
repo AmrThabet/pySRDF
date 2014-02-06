@@ -15,6 +15,8 @@ using namespace Security::Elements::String;
 using namespace Security::Targets::Files;
 using namespace Security::Targets::Memory;
 using namespace Security::Libraries::Malware::Dynamic;
+using namespace Security::Libraries::Malware::Static;
+using namespace Security::Libraries::Network::PacketGeneration;
 #endif
 
 template <typename Type, size_t N>
@@ -59,8 +61,11 @@ extern char swig_c_err_msg[256];
 void set_err(const char *msg);
 const char *err_occurred();
 
-#ifdef SWIG
+class PEFile;
+void addattr(PEFile* obj,char* name, char* value);
 
+
+#ifdef SWIG
 %exception {
     const char *err;
     $action
@@ -99,7 +104,6 @@ const char *err_occurred();
 }
 %cstring_output_allocate_size(char **s, int *slen, free(*$1));
 
-
 #endif
 
 //===================================================================
@@ -110,9 +114,9 @@ const char *err_occurred();
 #define DWORD int
 #define BOOL bool
 
-#define IMAGE_SCN_MEM_EXECUTE                0x20000000  // Section is executable.
-#define IMAGE_SCN_MEM_READ                   0x40000000  // Section is readable.
-#define IMAGE_SCN_MEM_WRITE                  0x80000000  // Section is writeable.
+#define IMAGE_SCN_MEM_EXECUTE 0x20000000  // Section is executable.
+#define IMAGE_SCN_MEM_READ    0x40000000  // Section is readable.
+#define IMAGE_SCN_MEM_WRITE   0x80000000  // Section is writeable.
 
 class cFile;
 class cPEFile : public cFile
@@ -273,6 +277,7 @@ struct THREAD_INFO
 %template (THREAD_INFOArray) array<THREAD_INFO*>;
 %template (MEMORY_MAPArray) array<MEMORY_MAP*>;
 %template (MODULEINFOArray) array<MODULEINFO*>;
+%template (SEARCH_FOUNDArray) array<SEARCH_FOUND*>;
 #endif
 
 struct MODULEINFO
@@ -283,6 +288,12 @@ struct MODULEINFO
 	char* Path;
 	char* MD5;
 	DWORD nExportedAPIs;
+};
+
+struct SEARCH_FOUND
+{
+	DWORD Address;
+	DWORD Allocationbase;
 };
 
 class process
@@ -314,6 +325,7 @@ public:
 	void DllInject(char* DLLFilename){handle->DllInject(DLLFilename);};
 	void CreateThread(DWORD addressToFunction , DWORD addressToParameter){handle->CreateThread(addressToFunction,addressToParameter);};
 	bool DumpProcess(char* Filename, DWORD Entrypoint, DWORD ImportUnloadingType){return handle->DumpProcess(Filename,Entrypoint,ImportUnloadingType);}; // Entrypoint == 0 means the same Entrypoint, ImportUnloadingType == PROC_DUMP_ZEROIMPORTTABLE or PROC_DUMP_UNLOADIMPORTTABLE
+	array<SEARCH_FOUND*> Search(char* StringToSearch);
 };
 
 
@@ -488,10 +500,6 @@ public:
 #define OP_TYPE_UNKNOWN_BEHAVIOR	0x00001000				//like jp, aad,daa ... 
 #define OP_TYPE_STACK_MANIPULATE	0x00002000				//like push, pop ..
 
-%template (intArray) array<int>;
-
-
-
 #endif
  struct MODRM{
         int length;
@@ -606,11 +614,12 @@ public:
 	DWORD EFlags;
 	DWORD LastInsLength;
 	DWORD Imagebase;
-
+	DWORD MaxIterations;				//Maximum Iterations to emulate (default = 1 million)
 	//functions
 	Emulator(char *FileName);
 	Emulator(char *buff,int size);
 	~Emulator();
+	array<SEARCH_FOUND*> Search(char* StringToSearch);
 	int Run();
 	int Run(char* LogFile);
 	int Step();
@@ -632,60 +641,219 @@ public:
 	//DWORD DefineAPI(DWORD DLLBase,char* APIName,int nArgs,DWORD APIFunc);
 };
 
+//=============================================================================================================
+//Yara and SSDeep
 
-/*
-// SWIG interface to our PlotWidget 
+#ifdef SWIG
+%template (YARA_SEARCHArray) array<YARA_SEARCH*>;
+#endif
 
-// Grab a Python function object as a Python object.
-%typemap(python,in) PyObject *pyfunc {
-  if (!PyCallable_Check($source)) {
-      PyErr_SetString(PyExc_TypeError, "Need a callable object!");
-      return NULL;
-  }
-  $target = $source;
-}
-
-// Type mapping for grabbing a FILE * from Python
-%typemap(python,in) FILE * {
-  if (!PyFile_Check($source)) {
-      PyErr_SetString(PyExc_TypeError, "Need a file!");
-      return NULL;
-  }
-  $target = PyFile_AsFile($source);
-}
-
-// Grab the class definition
-
-%{
-// This function matches the prototype of the normal C callback
-//   function for our widget. However, we use the clientdata pointer
- //  for holding a reference to a Python callable object.
-
-static double PythonCallBack(double a, void *clientdata)
+struct YARA_SEARCH
 {
-   PyObject *func, *arglist;
-   PyObject *result;
-   double    dres = 0;
-   
-   func = (PyObject *) clientdata;               // Get Python function
-   arglist = Py_BuildValue("(d)",a);             // Build argument list
-   result = PyEval_CallObject(func,arglist);     // Call Python
-   Py_DECREF(arglist);                           // Trash arglist
-   if (result) {                                 // If no errors, return double
-     dres = PyFloat_AsDouble(result);
-   }
-   Py_XDECREF(result);
-   return dres;
-}
-%}
+	DWORD Offset;
+	char* Name;
+};
 
-// Attach a new method to our plot widget for adding Python functions
-%addmethods PlotWidget {
-   // Set a Python function object as a callback function
-   // Note : PyObject *pyfunc is remapped with a typempap
-   void set_pymethod(PyObject *pyfunc) {
-     self->set_method(PythonCallBack, (void *) pyfunc);
-     Py_INCREF(pyfunc);
-   }
-}
-*/
+class YaraScanner
+{
+	cYaraScanner* YaraScan;
+public:
+	YaraScanner();
+	~YaraScanner();
+	void AddRule(char* Name, char* Rule);
+	array<YARA_SEARCH*> Search(char* buff, DWORD size);
+};
+
+
+char* ssdeep(char* buff, DWORD size = 0);
+DWORD ssdeepcompare(char* sig1, char* sig2);
+char* md5(char* buff,DWORD size = 0);
+
+//=============================================================================================================
+//Packetyzer
+
+#define PARAMTYPE_DWORD		1
+#define PARAMTYPE_STRING	0
+#define PARAMTYPE_MAC		2
+#ifdef SWIG
+
+//Session Types
+#define CONN_NETWORK_UNKNOWN		0
+#define CONN_NETWORK_ETHERNET		1
+#define CONN_NETWORK_SSL			2
+
+#define CONN_TRANSPORT_UNKNOWN		0
+#define CONN_TRANSPORT_TCP			1
+#define CONN_TRANSPORT_UDP			2
+#define CONN_TRANSPORT_ICMP			3
+#define CONN_TRANSPORT_IGMP			4
+
+#define CONN_ADDRESSING_UNKOWN		0
+#define CONN_ADDRESSING_ARP			1
+#define CONN_ADDRESSING_IP			2
+
+#define CONN_APPLICATION_UNKOWN		0
+#define CONN_APPLICATION_DNS		1
+#define CONN_APPLICATION_HTTP		2
+
+//Packet Generator
+#define GENERATE_TCP		1
+#define GENERATE_UDP		2
+#define GENERATE_ARP		3
+#define GENERATE_ICMP		4
+
+#define TCP_ACK				1
+#define TCP_SYN				2
+#define TCP_FIN				4
+#define TCP_RST				8
+#define TCP_PSH				16
+#define TCP_URG				32
+%template (SessionArray) array<Session*>;
+%template (CONN_PARAMArray) array<CONN_PARAM*>;
+%template (IP_INTArray) array<IP_INT*>;
+%template (STRING_STRUCTArray) array<STRING_STRUCT*>;
+%template (REQUESTSArray) array<REQUESTS*>;
+%template (HASH_STRUCTArray) array<HASH_STRUCT*>;
+
+#endif
+
+struct IP_INT
+{
+	DWORD IP;
+};
+
+struct STRING_STRUCT
+{
+	char* Value;
+};
+
+
+
+//Application Layer Structures
+struct DNS_STRUCT
+{
+	char* RequestedDomain;
+	bool DomainIsFound;
+	array<IP_INT*> ResolvedIPs;
+};
+
+struct HASH_STRUCT
+{
+	char* Key;
+	char* Value;
+};
+
+struct REQUESTS
+{
+	char* RequestType;
+	char* Address;
+	array<HASH_STRUCT*> Arguments;
+	DWORD ReplyNumber;
+};
+
+struct HTTP_STRUCT
+{
+	array<STRING_STRUCT*> Cookies;
+	char* UserAgent;
+	char* Referer;
+	char* ServerType;
+	array<REQUESTS*> Request;
+	DWORD nFiles;
+	cFile** Files;
+	void DumpFile(DWORD index, char* Filename)
+	{
+		if (index >= nFiles)
+		{
+			set_err("index out of range");
+			return;
+		}
+		FILE* f = fopen(Filename,"w");
+		if(f == NULL)
+		{
+			set_err("Wrong Filename or access denied");
+			return;
+		};
+
+		fwrite((const void*) Files[index]->BaseAddress,1,Files[index]->FileLength,f);
+		fclose(f);
+	};
+};
+
+//For parameters 
+struct CONN_PARAM
+{
+	char* Name;
+	char* sValue;
+	DWORD nValue;
+	char  MAC[6];
+	DWORD Type;
+};
+class Session
+{
+	cConnection* conn;
+public:
+	DNS_STRUCT* DNS;
+	HTTP_STRUCT* HTTP;
+	array<CONN_PARAM*> __params__;
+	Session(cConnection* connection);
+	~Session();
+	void ReadPacket(DWORD index,char **s, int *slen);
+#ifdef SWIG
+%pythoncode %{
+def __getattr__(self,Name):
+    for param in self.__params__:
+        if param.Name == Name and param.Type == PARAMTYPE_DWORD:
+            return param.nValue
+        elif param.Name == Name and param.Type == PARAMTYPE_STRING:
+            return param.sValue
+        elif param.Name == Name and param.Type == PARAMTYPE_MAC:
+            return param.MAC
+	if Name == "DNS" and self.ApplicationType == CONN_APPLICATION_DNS:
+			return getattr(self,Name)
+    elif Name == "HTTP" and self.ApplicationType == CONN_APPLICATION_HTTP:
+			return getattr(self,Name)
+
+    raise AttributeError
+%}
+#endif
+};
+
+class Traffic
+{
+	cTraffic* traffic;
+public:
+	array<Session*> Sessions;
+	Traffic(cTraffic* t);
+	~Traffic(){};
+};
+
+class PcapFile
+{
+	cPcapFile* Pcap;
+public:
+	DWORD nPackets;
+	Traffic* traffic;
+	PcapFile(char* Filename);
+	~PcapFile();
+
+};
+
+char* IPToString(DWORD IP);
+char* MACToString(char MAC[6]);
+
+class PacketGenerator
+{
+	cPacketGen* pGen;
+public:
+	PacketGenerator(DWORD type);
+	bool SetMACAddress(char* src_mac, char* dest_mac);
+	bool SetIPAddress(char* src_ip, char* dest_ip);
+	bool SetPorts(short src_port, short dest_port);
+
+	bool CustomizeTCP(char* tcp_data, DWORD tcp_data_size, short tcp_flags);
+	bool CustomizeUDP(char* udp_data, DWORD udp_data_size);
+	bool CustomizeICMP(char icmp_type, char icmp_code, char* icmp_data, DWORD icmp_data_size);
+
+	void DumpPacket(char **s, int *slen);
+};
+//*/
