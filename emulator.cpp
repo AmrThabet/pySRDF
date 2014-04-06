@@ -243,12 +243,12 @@ void Emulator::UpdateRegisters()
 {
 	emu->SetReg(0,eax);
 	emu->SetReg(1,ecx);
-	emu->SetReg(0,edx);
-	emu->SetReg(0,ebx);
-	emu->SetReg(0,esp);
-	emu->SetReg(0,ebp);
-	emu->SetReg(0,esi);
-	emu->SetReg(0,edi);
+	emu->SetReg(2,edx);
+	emu->SetReg(3,ebx);
+	emu->SetReg(4,esp);
+	emu->SetReg(5,ebp);
+	emu->SetReg(6,esi);
+	emu->SetReg(7,edi);
 	emu->SetEip(eip);
 	emu->SetEFLAGS(EFlags);
 }
