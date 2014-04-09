@@ -1,7 +1,7 @@
 from pySRDF import *
 
 #Change this line to your process Id
-ProcessId   = 7000
+ProcessId   = 752
 
 
 p = process(ProcessId)
@@ -52,7 +52,8 @@ newbuff = p.Read(buff,30)
 
 print newbuff
 
-found = emu.Search("{CC:CC:CC:CC}")                     #an example of memory search (it could take a normal string "xxx")
+print "Testing Search in Process Memory .. it will take some time\n"
+found = p.Search("pySRDF")                     #an example of memory search (it could take a normal string "xxx")
 
 for item in found:
     print "Address: %x" % item.Address
