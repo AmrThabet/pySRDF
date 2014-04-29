@@ -213,6 +213,10 @@ public:
 #define PAGE_EXECUTE_WRITECOPY 0x80     
 #define PAGE_GUARD            0x100     
 
+#define MEM_IMAGE				0x1000000
+#define MEM_PRIVATE				0x20000
+#define MEM_MAPPED				0x40000
+
 typedef struct FLOATING_SAVE_AREA {
     DWORD   ControlWord;
     DWORD   StatusWord;
@@ -261,6 +265,7 @@ struct MEMORY_MAP
 	DWORD Size;
 	DWORD Protection;
 	DWORD AllocationBase;
+	DWORD Type;
 };
 
 struct THREAD_INFO
@@ -272,7 +277,9 @@ struct THREAD_INFO
 	DWORD StackBase;
 	DWORD StackLimit;
 	DWORD SEH;
+	DWORD StartAddress;
 };
+
 
 %template (THREAD_INFOArray) array<THREAD_INFO*>;
 %template (MEMORY_MAPArray) array<MEMORY_MAP*>;
@@ -283,7 +290,9 @@ struct THREAD_INFO
 struct MODULEINFO
 {
 	DWORD Imagebase;
+	DWORD64 Imagebase64;
 	DWORD SizeOfImage;
+	DWORD64 SizeOfImage64;
 	char* Name;
 	char* Path;
 	char* MD5;
@@ -304,7 +313,9 @@ public:
 	DWORD procHandle;
 	__PEB  *ppeb;
 	DWORD Imagebase;
+	DWORD64 Imagebase64;
 	DWORD SizeOfImage;
+	DWORD64 SizeOfImage64;
 	char* Name;
 	char* Path;
 	char* MD5;
@@ -315,6 +326,7 @@ public:
 	array<MEMORY_MAP*> MemoryMap;
 	array<THREAD_INFO*> Threads;
 	bool IsFound;
+	bool Is64bits;
 
 	void RefreshThreads(){handle->RefreshThreads();};
 	process(int processId);

@@ -2940,69 +2940,70 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_DIRTYPAGES_STRUCT swig_types[3]
 #define SWIGTYPE_p_DISASM_INS swig_types[4]
 #define SWIGTYPE_p_DNS_STRUCT swig_types[5]
-#define SWIGTYPE_p_Dbg swig_types[6]
-#define SWIGTYPE_p_Disasm swig_types[7]
-#define SWIGTYPE_p_EXPORTFUNCTION swig_types[8]
-#define SWIGTYPE_p_EXPORT_TABLE swig_types[9]
-#define SWIGTYPE_p_Emulator swig_types[10]
-#define SWIGTYPE_p_FLOATING_SAVE_AREA swig_types[11]
-#define SWIGTYPE_p_HANDLE swig_types[12]
-#define SWIGTYPE_p_HASH_STRUCT swig_types[13]
-#define SWIGTYPE_p_HTTP_STRUCT swig_types[14]
-#define SWIGTYPE_p_IMPORTTABLE_API swig_types[15]
-#define SWIGTYPE_p_IMPORT_DLL swig_types[16]
-#define SWIGTYPE_p_IP_INT swig_types[17]
-#define SWIGTYPE_p_MEMORY_MAP swig_types[18]
-#define SWIGTYPE_p_MEMORY_STRUCT swig_types[19]
-#define SWIGTYPE_p_MODRM swig_types[20]
-#define SWIGTYPE_p_MODULEINFO swig_types[21]
-#define SWIGTYPE_p_PDWORD swig_types[22]
-#define SWIGTYPE_p_PEFile swig_types[23]
-#define SWIGTYPE_p_PWORD swig_types[24]
-#define SWIGTYPE_p_PacketGenerator swig_types[25]
-#define SWIGTYPE_p_PcapFile swig_types[26]
-#define SWIGTYPE_p_REQUESTS swig_types[27]
-#define SWIGTYPE_p_SEARCH_FOUND swig_types[28]
-#define SWIGTYPE_p_SECTION_STRUCT swig_types[29]
-#define SWIGTYPE_p_STRING_STRUCT swig_types[30]
-#define SWIGTYPE_p_Session swig_types[31]
-#define SWIGTYPE_p_THREAD_INFO swig_types[32]
-#define SWIGTYPE_p_Traffic swig_types[33]
-#define SWIGTYPE_p_WORD swig_types[34]
-#define SWIGTYPE_p_YARA_SEARCH swig_types[35]
-#define SWIGTYPE_p_YaraScanner swig_types[36]
-#define SWIGTYPE_p___PEB swig_types[37]
-#define SWIGTYPE_p_arrayT_CONN_PARAM_p_t swig_types[38]
-#define SWIGTYPE_p_arrayT_DIRTYPAGES_STRUCT_p_t swig_types[39]
-#define SWIGTYPE_p_arrayT_EXPORTFUNCTION_p_t swig_types[40]
-#define SWIGTYPE_p_arrayT_HASH_STRUCT_p_t swig_types[41]
-#define SWIGTYPE_p_arrayT_IMPORTTABLE_API_p_t swig_types[42]
-#define SWIGTYPE_p_arrayT_IMPORT_DLL_p_t swig_types[43]
-#define SWIGTYPE_p_arrayT_IP_INT_p_t swig_types[44]
-#define SWIGTYPE_p_arrayT_MEMORY_MAP_p_t swig_types[45]
-#define SWIGTYPE_p_arrayT_MEMORY_STRUCT_p_t swig_types[46]
-#define SWIGTYPE_p_arrayT_MODULEINFO_p_t swig_types[47]
-#define SWIGTYPE_p_arrayT_REQUESTS_p_t swig_types[48]
-#define SWIGTYPE_p_arrayT_SEARCH_FOUND_p_t swig_types[49]
-#define SWIGTYPE_p_arrayT_SECTION_STRUCT_p_t swig_types[50]
-#define SWIGTYPE_p_arrayT_STRING_STRUCT_p_t swig_types[51]
-#define SWIGTYPE_p_arrayT_Session_p_t swig_types[52]
-#define SWIGTYPE_p_arrayT_THREAD_INFO_p_t swig_types[53]
-#define SWIGTYPE_p_arrayT_YARA_SEARCH_p_t swig_types[54]
-#define SWIGTYPE_p_cConnection swig_types[55]
-#define SWIGTYPE_p_cFile swig_types[56]
-#define SWIGTYPE_p_cList swig_types[57]
-#define SWIGTYPE_p_cPEFile swig_types[58]
-#define SWIGTYPE_p_cProcess swig_types[59]
-#define SWIGTYPE_p_cTraffic swig_types[60]
-#define SWIGTYPE_p_char swig_types[61]
-#define SWIGTYPE_p_int swig_types[62]
-#define SWIGTYPE_p_p_cFile swig_types[63]
-#define SWIGTYPE_p_p_cPEFile swig_types[64]
-#define SWIGTYPE_p_p_char swig_types[65]
-#define SWIGTYPE_p_process swig_types[66]
-static swig_type_info *swig_types[68];
-static swig_module_info swig_module = {swig_types, 67, 0, 0, 0, 0};
+#define SWIGTYPE_p_DWORD64 swig_types[6]
+#define SWIGTYPE_p_Dbg swig_types[7]
+#define SWIGTYPE_p_Disasm swig_types[8]
+#define SWIGTYPE_p_EXPORTFUNCTION swig_types[9]
+#define SWIGTYPE_p_EXPORT_TABLE swig_types[10]
+#define SWIGTYPE_p_Emulator swig_types[11]
+#define SWIGTYPE_p_FLOATING_SAVE_AREA swig_types[12]
+#define SWIGTYPE_p_HANDLE swig_types[13]
+#define SWIGTYPE_p_HASH_STRUCT swig_types[14]
+#define SWIGTYPE_p_HTTP_STRUCT swig_types[15]
+#define SWIGTYPE_p_IMPORTTABLE_API swig_types[16]
+#define SWIGTYPE_p_IMPORT_DLL swig_types[17]
+#define SWIGTYPE_p_IP_INT swig_types[18]
+#define SWIGTYPE_p_MEMORY_MAP swig_types[19]
+#define SWIGTYPE_p_MEMORY_STRUCT swig_types[20]
+#define SWIGTYPE_p_MODRM swig_types[21]
+#define SWIGTYPE_p_MODULEINFO swig_types[22]
+#define SWIGTYPE_p_PDWORD swig_types[23]
+#define SWIGTYPE_p_PEFile swig_types[24]
+#define SWIGTYPE_p_PWORD swig_types[25]
+#define SWIGTYPE_p_PacketGenerator swig_types[26]
+#define SWIGTYPE_p_PcapFile swig_types[27]
+#define SWIGTYPE_p_REQUESTS swig_types[28]
+#define SWIGTYPE_p_SEARCH_FOUND swig_types[29]
+#define SWIGTYPE_p_SECTION_STRUCT swig_types[30]
+#define SWIGTYPE_p_STRING_STRUCT swig_types[31]
+#define SWIGTYPE_p_Session swig_types[32]
+#define SWIGTYPE_p_THREAD_INFO swig_types[33]
+#define SWIGTYPE_p_Traffic swig_types[34]
+#define SWIGTYPE_p_WORD swig_types[35]
+#define SWIGTYPE_p_YARA_SEARCH swig_types[36]
+#define SWIGTYPE_p_YaraScanner swig_types[37]
+#define SWIGTYPE_p___PEB swig_types[38]
+#define SWIGTYPE_p_arrayT_CONN_PARAM_p_t swig_types[39]
+#define SWIGTYPE_p_arrayT_DIRTYPAGES_STRUCT_p_t swig_types[40]
+#define SWIGTYPE_p_arrayT_EXPORTFUNCTION_p_t swig_types[41]
+#define SWIGTYPE_p_arrayT_HASH_STRUCT_p_t swig_types[42]
+#define SWIGTYPE_p_arrayT_IMPORTTABLE_API_p_t swig_types[43]
+#define SWIGTYPE_p_arrayT_IMPORT_DLL_p_t swig_types[44]
+#define SWIGTYPE_p_arrayT_IP_INT_p_t swig_types[45]
+#define SWIGTYPE_p_arrayT_MEMORY_MAP_p_t swig_types[46]
+#define SWIGTYPE_p_arrayT_MEMORY_STRUCT_p_t swig_types[47]
+#define SWIGTYPE_p_arrayT_MODULEINFO_p_t swig_types[48]
+#define SWIGTYPE_p_arrayT_REQUESTS_p_t swig_types[49]
+#define SWIGTYPE_p_arrayT_SEARCH_FOUND_p_t swig_types[50]
+#define SWIGTYPE_p_arrayT_SECTION_STRUCT_p_t swig_types[51]
+#define SWIGTYPE_p_arrayT_STRING_STRUCT_p_t swig_types[52]
+#define SWIGTYPE_p_arrayT_Session_p_t swig_types[53]
+#define SWIGTYPE_p_arrayT_THREAD_INFO_p_t swig_types[54]
+#define SWIGTYPE_p_arrayT_YARA_SEARCH_p_t swig_types[55]
+#define SWIGTYPE_p_cConnection swig_types[56]
+#define SWIGTYPE_p_cFile swig_types[57]
+#define SWIGTYPE_p_cList swig_types[58]
+#define SWIGTYPE_p_cPEFile swig_types[59]
+#define SWIGTYPE_p_cProcess swig_types[60]
+#define SWIGTYPE_p_cTraffic swig_types[61]
+#define SWIGTYPE_p_char swig_types[62]
+#define SWIGTYPE_p_int swig_types[63]
+#define SWIGTYPE_p_p_cFile swig_types[64]
+#define SWIGTYPE_p_p_cPEFile swig_types[65]
+#define SWIGTYPE_p_p_char swig_types[66]
+#define SWIGTYPE_p_process swig_types[67]
+static swig_type_info *swig_types[69];
+static swig_module_info swig_module = {swig_types, 68, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -9784,6 +9785,58 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_MEMORY_MAP_Type_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MEMORY_MAP *arg1 = (MEMORY_MAP *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:MEMORY_MAP_Type_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MEMORY_MAP, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MEMORY_MAP_Type_set" "', argument " "1"" of type '" "MEMORY_MAP *""'"); 
+  }
+  arg1 = reinterpret_cast< MEMORY_MAP * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MEMORY_MAP_Type_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->Type = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MEMORY_MAP_Type_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MEMORY_MAP *arg1 = (MEMORY_MAP *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:MEMORY_MAP_Type_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MEMORY_MAP, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MEMORY_MAP_Type_get" "', argument " "1"" of type '" "MEMORY_MAP *""'"); 
+  }
+  arg1 = reinterpret_cast< MEMORY_MAP * >(argp1);
+  result = (int) ((arg1)->Type);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_new_MEMORY_MAP(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   MEMORY_MAP *result = 0 ;
@@ -10204,6 +10257,58 @@ SWIGINTERN PyObject *_wrap_THREAD_INFO_SEH_get(PyObject *SWIGUNUSEDPARM(self), P
   }
   arg1 = reinterpret_cast< THREAD_INFO * >(argp1);
   result = (int) ((arg1)->SEH);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_THREAD_INFO_StartAddress_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  THREAD_INFO *arg1 = (THREAD_INFO *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:THREAD_INFO_StartAddress_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_THREAD_INFO, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "THREAD_INFO_StartAddress_set" "', argument " "1"" of type '" "THREAD_INFO *""'"); 
+  }
+  arg1 = reinterpret_cast< THREAD_INFO * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "THREAD_INFO_StartAddress_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->StartAddress = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_THREAD_INFO_StartAddress_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  THREAD_INFO *arg1 = (THREAD_INFO *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:THREAD_INFO_StartAddress_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_THREAD_INFO, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "THREAD_INFO_StartAddress_get" "', argument " "1"" of type '" "THREAD_INFO *""'"); 
+  }
+  arg1 = reinterpret_cast< THREAD_INFO * >(argp1);
+  result = (int) ((arg1)->StartAddress);
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -11838,6 +11943,66 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_MODULEINFO_Imagebase64_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MODULEINFO *arg1 = (MODULEINFO *) 0 ;
+  DWORD64 arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:MODULEINFO_Imagebase64_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MODULEINFO, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MODULEINFO_Imagebase64_set" "', argument " "1"" of type '" "MODULEINFO *""'"); 
+  }
+  arg1 = reinterpret_cast< MODULEINFO * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_DWORD64,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MODULEINFO_Imagebase64_set" "', argument " "2"" of type '" "DWORD64""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MODULEINFO_Imagebase64_set" "', argument " "2"" of type '" "DWORD64""'");
+    } else {
+      DWORD64 * temp = reinterpret_cast< DWORD64 * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  if (arg1) (arg1)->Imagebase64 = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MODULEINFO_Imagebase64_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MODULEINFO *arg1 = (MODULEINFO *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  DWORD64 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:MODULEINFO_Imagebase64_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MODULEINFO, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MODULEINFO_Imagebase64_get" "', argument " "1"" of type '" "MODULEINFO *""'"); 
+  }
+  arg1 = reinterpret_cast< MODULEINFO * >(argp1);
+  result =  ((arg1)->Imagebase64);
+  resultobj = SWIG_NewPointerObj((new DWORD64(static_cast< const DWORD64& >(result))), SWIGTYPE_p_DWORD64, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_MODULEINFO_SizeOfImage_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   MODULEINFO *arg1 = (MODULEINFO *) 0 ;
@@ -11884,6 +12049,66 @@ SWIGINTERN PyObject *_wrap_MODULEINFO_SizeOfImage_get(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< MODULEINFO * >(argp1);
   result = (int) ((arg1)->SizeOfImage);
   resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MODULEINFO_SizeOfImage64_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MODULEINFO *arg1 = (MODULEINFO *) 0 ;
+  DWORD64 arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:MODULEINFO_SizeOfImage64_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MODULEINFO, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MODULEINFO_SizeOfImage64_set" "', argument " "1"" of type '" "MODULEINFO *""'"); 
+  }
+  arg1 = reinterpret_cast< MODULEINFO * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_DWORD64,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MODULEINFO_SizeOfImage64_set" "', argument " "2"" of type '" "DWORD64""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MODULEINFO_SizeOfImage64_set" "', argument " "2"" of type '" "DWORD64""'");
+    } else {
+      DWORD64 * temp = reinterpret_cast< DWORD64 * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  if (arg1) (arg1)->SizeOfImage64 = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MODULEINFO_SizeOfImage64_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MODULEINFO *arg1 = (MODULEINFO *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  DWORD64 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:MODULEINFO_SizeOfImage64_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MODULEINFO, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MODULEINFO_SizeOfImage64_get" "', argument " "1"" of type '" "MODULEINFO *""'"); 
+  }
+  arg1 = reinterpret_cast< MODULEINFO * >(argp1);
+  result =  ((arg1)->SizeOfImage64);
+  resultobj = SWIG_NewPointerObj((new DWORD64(static_cast< const DWORD64& >(result))), SWIGTYPE_p_DWORD64, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -12547,6 +12772,66 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_process_Imagebase64_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  process *arg1 = (process *) 0 ;
+  DWORD64 arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:process_Imagebase64_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_process, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "process_Imagebase64_set" "', argument " "1"" of type '" "process *""'"); 
+  }
+  arg1 = reinterpret_cast< process * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_DWORD64,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "process_Imagebase64_set" "', argument " "2"" of type '" "DWORD64""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "process_Imagebase64_set" "', argument " "2"" of type '" "DWORD64""'");
+    } else {
+      DWORD64 * temp = reinterpret_cast< DWORD64 * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  if (arg1) (arg1)->Imagebase64 = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_process_Imagebase64_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  process *arg1 = (process *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  DWORD64 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:process_Imagebase64_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_process, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "process_Imagebase64_get" "', argument " "1"" of type '" "process *""'"); 
+  }
+  arg1 = reinterpret_cast< process * >(argp1);
+  result =  ((arg1)->Imagebase64);
+  resultobj = SWIG_NewPointerObj((new DWORD64(static_cast< const DWORD64& >(result))), SWIGTYPE_p_DWORD64, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_process_SizeOfImage_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   process *arg1 = (process *) 0 ;
@@ -12593,6 +12878,66 @@ SWIGINTERN PyObject *_wrap_process_SizeOfImage_get(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< process * >(argp1);
   result = (int) ((arg1)->SizeOfImage);
   resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_process_SizeOfImage64_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  process *arg1 = (process *) 0 ;
+  DWORD64 arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:process_SizeOfImage64_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_process, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "process_SizeOfImage64_set" "', argument " "1"" of type '" "process *""'"); 
+  }
+  arg1 = reinterpret_cast< process * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_DWORD64,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "process_SizeOfImage64_set" "', argument " "2"" of type '" "DWORD64""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "process_SizeOfImage64_set" "', argument " "2"" of type '" "DWORD64""'");
+    } else {
+      DWORD64 * temp = reinterpret_cast< DWORD64 * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  if (arg1) (arg1)->SizeOfImage64 = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_process_SizeOfImage64_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  process *arg1 = (process *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  DWORD64 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:process_SizeOfImage64_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_process, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "process_SizeOfImage64_get" "', argument " "1"" of type '" "process *""'"); 
+  }
+  arg1 = reinterpret_cast< process * >(argp1);
+  result =  ((arg1)->SizeOfImage64);
+  resultobj = SWIG_NewPointerObj((new DWORD64(static_cast< const DWORD64& >(result))), SWIGTYPE_p_DWORD64, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -13148,6 +13493,58 @@ SWIGINTERN PyObject *_wrap_process_IsFound_get(PyObject *SWIGUNUSEDPARM(self), P
   }
   arg1 = reinterpret_cast< process * >(argp1);
   result = (bool) ((arg1)->IsFound);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_process_Is64bits_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  process *arg1 = (process *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:process_Is64bits_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_process, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "process_Is64bits_set" "', argument " "1"" of type '" "process *""'"); 
+  }
+  arg1 = reinterpret_cast< process * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "process_Is64bits_set" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  if (arg1) (arg1)->Is64bits = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_process_Is64bits_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  process *arg1 = (process *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:process_Is64bits_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_process, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "process_Is64bits_get" "', argument " "1"" of type '" "process *""'"); 
+  }
+  arg1 = reinterpret_cast< process * >(argp1);
+  result = (bool) ((arg1)->Is64bits);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -25374,6 +25771,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MEMORY_MAP_Protection_get", _wrap_MEMORY_MAP_Protection_get, METH_VARARGS, NULL},
 	 { (char *)"MEMORY_MAP_AllocationBase_set", _wrap_MEMORY_MAP_AllocationBase_set, METH_VARARGS, NULL},
 	 { (char *)"MEMORY_MAP_AllocationBase_get", _wrap_MEMORY_MAP_AllocationBase_get, METH_VARARGS, NULL},
+	 { (char *)"MEMORY_MAP_Type_set", _wrap_MEMORY_MAP_Type_set, METH_VARARGS, NULL},
+	 { (char *)"MEMORY_MAP_Type_get", _wrap_MEMORY_MAP_Type_get, METH_VARARGS, NULL},
 	 { (char *)"new_MEMORY_MAP", _wrap_new_MEMORY_MAP, METH_VARARGS, NULL},
 	 { (char *)"delete_MEMORY_MAP", _wrap_delete_MEMORY_MAP, METH_VARARGS, NULL},
 	 { (char *)"MEMORY_MAP_swigregister", MEMORY_MAP_swigregister, METH_VARARGS, NULL},
@@ -25391,6 +25790,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"THREAD_INFO_StackLimit_get", _wrap_THREAD_INFO_StackLimit_get, METH_VARARGS, NULL},
 	 { (char *)"THREAD_INFO_SEH_set", _wrap_THREAD_INFO_SEH_set, METH_VARARGS, NULL},
 	 { (char *)"THREAD_INFO_SEH_get", _wrap_THREAD_INFO_SEH_get, METH_VARARGS, NULL},
+	 { (char *)"THREAD_INFO_StartAddress_set", _wrap_THREAD_INFO_StartAddress_set, METH_VARARGS, NULL},
+	 { (char *)"THREAD_INFO_StartAddress_get", _wrap_THREAD_INFO_StartAddress_get, METH_VARARGS, NULL},
 	 { (char *)"new_THREAD_INFO", _wrap_new_THREAD_INFO, METH_VARARGS, NULL},
 	 { (char *)"delete_THREAD_INFO", _wrap_delete_THREAD_INFO, METH_VARARGS, NULL},
 	 { (char *)"THREAD_INFO_swigregister", THREAD_INFO_swigregister, METH_VARARGS, NULL},
@@ -25440,8 +25841,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SEARCH_FOUNDArray_swigregister", SEARCH_FOUNDArray_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MODULEINFO_Imagebase_set", _wrap_MODULEINFO_Imagebase_set, METH_VARARGS, NULL},
 	 { (char *)"MODULEINFO_Imagebase_get", _wrap_MODULEINFO_Imagebase_get, METH_VARARGS, NULL},
+	 { (char *)"MODULEINFO_Imagebase64_set", _wrap_MODULEINFO_Imagebase64_set, METH_VARARGS, NULL},
+	 { (char *)"MODULEINFO_Imagebase64_get", _wrap_MODULEINFO_Imagebase64_get, METH_VARARGS, NULL},
 	 { (char *)"MODULEINFO_SizeOfImage_set", _wrap_MODULEINFO_SizeOfImage_set, METH_VARARGS, NULL},
 	 { (char *)"MODULEINFO_SizeOfImage_get", _wrap_MODULEINFO_SizeOfImage_get, METH_VARARGS, NULL},
+	 { (char *)"MODULEINFO_SizeOfImage64_set", _wrap_MODULEINFO_SizeOfImage64_set, METH_VARARGS, NULL},
+	 { (char *)"MODULEINFO_SizeOfImage64_get", _wrap_MODULEINFO_SizeOfImage64_get, METH_VARARGS, NULL},
 	 { (char *)"MODULEINFO_Name_set", _wrap_MODULEINFO_Name_set, METH_VARARGS, NULL},
 	 { (char *)"MODULEINFO_Name_get", _wrap_MODULEINFO_Name_get, METH_VARARGS, NULL},
 	 { (char *)"MODULEINFO_Path_set", _wrap_MODULEINFO_Path_set, METH_VARARGS, NULL},
@@ -25468,8 +25873,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"process_ppeb_get", _wrap_process_ppeb_get, METH_VARARGS, NULL},
 	 { (char *)"process_Imagebase_set", _wrap_process_Imagebase_set, METH_VARARGS, NULL},
 	 { (char *)"process_Imagebase_get", _wrap_process_Imagebase_get, METH_VARARGS, NULL},
+	 { (char *)"process_Imagebase64_set", _wrap_process_Imagebase64_set, METH_VARARGS, NULL},
+	 { (char *)"process_Imagebase64_get", _wrap_process_Imagebase64_get, METH_VARARGS, NULL},
 	 { (char *)"process_SizeOfImage_set", _wrap_process_SizeOfImage_set, METH_VARARGS, NULL},
 	 { (char *)"process_SizeOfImage_get", _wrap_process_SizeOfImage_get, METH_VARARGS, NULL},
+	 { (char *)"process_SizeOfImage64_set", _wrap_process_SizeOfImage64_set, METH_VARARGS, NULL},
+	 { (char *)"process_SizeOfImage64_get", _wrap_process_SizeOfImage64_get, METH_VARARGS, NULL},
 	 { (char *)"process_Name_set", _wrap_process_Name_set, METH_VARARGS, NULL},
 	 { (char *)"process_Name_get", _wrap_process_Name_get, METH_VARARGS, NULL},
 	 { (char *)"process_Path_set", _wrap_process_Path_set, METH_VARARGS, NULL},
@@ -25490,6 +25899,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"process_Threads_get", _wrap_process_Threads_get, METH_VARARGS, NULL},
 	 { (char *)"process_IsFound_set", _wrap_process_IsFound_set, METH_VARARGS, NULL},
 	 { (char *)"process_IsFound_get", _wrap_process_IsFound_get, METH_VARARGS, NULL},
+	 { (char *)"process_Is64bits_set", _wrap_process_Is64bits_set, METH_VARARGS, NULL},
+	 { (char *)"process_Is64bits_get", _wrap_process_Is64bits_get, METH_VARARGS, NULL},
 	 { (char *)"process_RefreshThreads", _wrap_process_RefreshThreads, METH_VARARGS, NULL},
 	 { (char *)"new_process", _wrap_new_process, METH_VARARGS, NULL},
 	 { (char *)"delete_process", _wrap_delete_process, METH_VARARGS, NULL},
@@ -25894,6 +26305,7 @@ static swig_type_info _swigt__p_CONTEXT = {"_p_CONTEXT", "CONTEXT *", 0, 0, (voi
 static swig_type_info _swigt__p_DIRTYPAGES_STRUCT = {"_p_DIRTYPAGES_STRUCT", "DIRTYPAGES_STRUCT *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DISASM_INS = {"_p_DISASM_INS", "DISASM_INS *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DNS_STRUCT = {"_p_DNS_STRUCT", "DNS_STRUCT *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_DWORD64 = {"_p_DWORD64", "DWORD64 *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Dbg = {"_p_Dbg", "Dbg *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Disasm = {"_p_Disasm", "Disasm *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_EXPORTFUNCTION = {"_p_EXPORTFUNCTION", "EXPORTFUNCTION *", 0, 0, (void*)0, 0};
@@ -25963,6 +26375,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_DIRTYPAGES_STRUCT,
   &_swigt__p_DISASM_INS,
   &_swigt__p_DNS_STRUCT,
+  &_swigt__p_DWORD64,
   &_swigt__p_Dbg,
   &_swigt__p_Disasm,
   &_swigt__p_EXPORTFUNCTION,
@@ -26032,6 +26445,7 @@ static swig_cast_info _swigc__p_CONTEXT[] = {  {&_swigt__p_CONTEXT, 0, 0, 0},{0,
 static swig_cast_info _swigc__p_DIRTYPAGES_STRUCT[] = {  {&_swigt__p_DIRTYPAGES_STRUCT, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DISASM_INS[] = {  {&_swigt__p_DISASM_INS, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DNS_STRUCT[] = {  {&_swigt__p_DNS_STRUCT, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_DWORD64[] = {  {&_swigt__p_DWORD64, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Dbg[] = {  {&_swigt__p_Dbg, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Disasm[] = {  {&_swigt__p_Disasm, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_EXPORTFUNCTION[] = {  {&_swigt__p_EXPORTFUNCTION, 0, 0, 0},{0, 0, 0, 0}};
@@ -26101,6 +26515,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_DIRTYPAGES_STRUCT,
   _swigc__p_DISASM_INS,
   _swigc__p_DNS_STRUCT,
+  _swigc__p_DWORD64,
   _swigc__p_Dbg,
   _swigc__p_Disasm,
   _swigc__p_EXPORTFUNCTION,
@@ -26860,6 +27275,9 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PAGE_EXECUTE_READWRITE",SWIG_From_int(static_cast< int >(0x40)));
   SWIG_Python_SetConstant(d, "PAGE_EXECUTE_WRITECOPY",SWIG_From_int(static_cast< int >(0x80)));
   SWIG_Python_SetConstant(d, "PAGE_GUARD",SWIG_From_int(static_cast< int >(0x100)));
+  SWIG_Python_SetConstant(d, "MEM_IMAGE",SWIG_From_int(static_cast< int >(0x1000000)));
+  SWIG_Python_SetConstant(d, "MEM_PRIVATE",SWIG_From_int(static_cast< int >(0x20000)));
+  SWIG_Python_SetConstant(d, "MEM_MAPPED",SWIG_From_int(static_cast< int >(0x40000)));
   SWIG_Python_SetConstant(d, "DBG_STATUS_STEP",SWIG_From_int(static_cast< int >(4)));
   SWIG_Python_SetConstant(d, "DBG_STATUS_HARDWARE_BP",SWIG_From_int(static_cast< int >(3)));
   SWIG_Python_SetConstant(d, "DBG_STATUS_MEM_BREAKPOINT",SWIG_From_int(static_cast< int >(2)));

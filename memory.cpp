@@ -8,12 +8,27 @@ process::process(int processId)
 {
 	handle = new cProcess(processId);
 	IsFound = handle->IsFound();
+	Is64bits = handle->is64Bits;
+
 	if (IsFound)
 	{
 		procHandle = handle->procHandle;
 		ppeb = handle->ppeb;
-		Imagebase = handle->ImageBase;
-		SizeOfImage = handle->SizeOfImage;
+		if (Is64bits)
+		{
+			Imagebase64 = (DWORD64)handle->ImageBase64;
+			SizeOfImage64 = handle->SizeOfImage64;
+			Imagebase = NULL;
+			SizeOfImage = NULL;
+		}
+		else
+		{
+			Imagebase = handle->ImageBase;
+			SizeOfImage = handle->SizeOfImage;
+			Imagebase64 = NULL;
+			SizeOfImage64 = NULL;
+		}
+		
 		Name = handle->processName.GetChar();
 		Path = handle->processPath.GetChar();
 		MD5 = handle->processMD5.GetChar();
@@ -29,8 +44,20 @@ process::process(int processId)
 		{
 			MODULEINFO x = {0};
 			MODULE_INFO* Item = (MODULE_INFO*)handle->modulesList.GetItem(i);
-			x.Imagebase = Item->moduleImageBase;
-			x.SizeOfImage = Item->moduleSizeOfImage;
+			if (Is64bits)
+			{
+				x.Imagebase64 = (DWORD64)Item->moduleImageBase64;
+				x.SizeOfImage64 = Item->moduleSizeOfImage64;
+				x.Imagebase = NULL;
+				x.SizeOfImage = NULL;
+			}
+			else
+			{
+				x.Imagebase = Item->moduleImageBase;
+				x.SizeOfImage = Item->moduleSizeOfImage;
+				x.Imagebase64 = NULL;
+				x.SizeOfImage64 = NULL;
+			}
 			x.Name = Item->moduleName->GetChar();
 			x.MD5 = Item->moduleMD5->GetChar();
 			x.Path = Item->modulePath->GetChar();

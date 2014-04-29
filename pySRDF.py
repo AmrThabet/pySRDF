@@ -399,6 +399,9 @@ PAGE_EXECUTE_READ = _pySRDF.PAGE_EXECUTE_READ
 PAGE_EXECUTE_READWRITE = _pySRDF.PAGE_EXECUTE_READWRITE
 PAGE_EXECUTE_WRITECOPY = _pySRDF.PAGE_EXECUTE_WRITECOPY
 PAGE_GUARD = _pySRDF.PAGE_GUARD
+MEM_IMAGE = _pySRDF.MEM_IMAGE
+MEM_PRIVATE = _pySRDF.MEM_PRIVATE
+MEM_MAPPED = _pySRDF.MEM_MAPPED
 class FLOATING_SAVE_AREA(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, FLOATING_SAVE_AREA, name, value)
@@ -549,6 +552,9 @@ class MEMORY_MAP(_object):
     __swig_setmethods__["AllocationBase"] = _pySRDF.MEMORY_MAP_AllocationBase_set
     __swig_getmethods__["AllocationBase"] = _pySRDF.MEMORY_MAP_AllocationBase_get
     if _newclass:AllocationBase = _swig_property(_pySRDF.MEMORY_MAP_AllocationBase_get, _pySRDF.MEMORY_MAP_AllocationBase_set)
+    __swig_setmethods__["Type"] = _pySRDF.MEMORY_MAP_Type_set
+    __swig_getmethods__["Type"] = _pySRDF.MEMORY_MAP_Type_get
+    if _newclass:Type = _swig_property(_pySRDF.MEMORY_MAP_Type_get, _pySRDF.MEMORY_MAP_Type_set)
     def __init__(self): 
         this = _pySRDF.new_MEMORY_MAP()
         try: self.this.append(this)
@@ -585,6 +591,9 @@ class THREAD_INFO(_object):
     __swig_setmethods__["SEH"] = _pySRDF.THREAD_INFO_SEH_set
     __swig_getmethods__["SEH"] = _pySRDF.THREAD_INFO_SEH_get
     if _newclass:SEH = _swig_property(_pySRDF.THREAD_INFO_SEH_get, _pySRDF.THREAD_INFO_SEH_set)
+    __swig_setmethods__["StartAddress"] = _pySRDF.THREAD_INFO_StartAddress_set
+    __swig_getmethods__["StartAddress"] = _pySRDF.THREAD_INFO_StartAddress_get
+    if _newclass:StartAddress = _swig_property(_pySRDF.THREAD_INFO_StartAddress_get, _pySRDF.THREAD_INFO_StartAddress_set)
     def __init__(self): 
         this = _pySRDF.new_THREAD_INFO()
         try: self.this.append(this)
@@ -699,9 +708,15 @@ class MODULEINFO(_object):
     __swig_setmethods__["Imagebase"] = _pySRDF.MODULEINFO_Imagebase_set
     __swig_getmethods__["Imagebase"] = _pySRDF.MODULEINFO_Imagebase_get
     if _newclass:Imagebase = _swig_property(_pySRDF.MODULEINFO_Imagebase_get, _pySRDF.MODULEINFO_Imagebase_set)
+    __swig_setmethods__["Imagebase64"] = _pySRDF.MODULEINFO_Imagebase64_set
+    __swig_getmethods__["Imagebase64"] = _pySRDF.MODULEINFO_Imagebase64_get
+    if _newclass:Imagebase64 = _swig_property(_pySRDF.MODULEINFO_Imagebase64_get, _pySRDF.MODULEINFO_Imagebase64_set)
     __swig_setmethods__["SizeOfImage"] = _pySRDF.MODULEINFO_SizeOfImage_set
     __swig_getmethods__["SizeOfImage"] = _pySRDF.MODULEINFO_SizeOfImage_get
     if _newclass:SizeOfImage = _swig_property(_pySRDF.MODULEINFO_SizeOfImage_get, _pySRDF.MODULEINFO_SizeOfImage_set)
+    __swig_setmethods__["SizeOfImage64"] = _pySRDF.MODULEINFO_SizeOfImage64_set
+    __swig_getmethods__["SizeOfImage64"] = _pySRDF.MODULEINFO_SizeOfImage64_get
+    if _newclass:SizeOfImage64 = _swig_property(_pySRDF.MODULEINFO_SizeOfImage64_get, _pySRDF.MODULEINFO_SizeOfImage64_set)
     __swig_setmethods__["Name"] = _pySRDF.MODULEINFO_Name_set
     __swig_getmethods__["Name"] = _pySRDF.MODULEINFO_Name_get
     if _newclass:Name = _swig_property(_pySRDF.MODULEINFO_Name_get, _pySRDF.MODULEINFO_Name_set)
@@ -762,9 +777,15 @@ class process(_object):
     __swig_setmethods__["Imagebase"] = _pySRDF.process_Imagebase_set
     __swig_getmethods__["Imagebase"] = _pySRDF.process_Imagebase_get
     if _newclass:Imagebase = _swig_property(_pySRDF.process_Imagebase_get, _pySRDF.process_Imagebase_set)
+    __swig_setmethods__["Imagebase64"] = _pySRDF.process_Imagebase64_set
+    __swig_getmethods__["Imagebase64"] = _pySRDF.process_Imagebase64_get
+    if _newclass:Imagebase64 = _swig_property(_pySRDF.process_Imagebase64_get, _pySRDF.process_Imagebase64_set)
     __swig_setmethods__["SizeOfImage"] = _pySRDF.process_SizeOfImage_set
     __swig_getmethods__["SizeOfImage"] = _pySRDF.process_SizeOfImage_get
     if _newclass:SizeOfImage = _swig_property(_pySRDF.process_SizeOfImage_get, _pySRDF.process_SizeOfImage_set)
+    __swig_setmethods__["SizeOfImage64"] = _pySRDF.process_SizeOfImage64_set
+    __swig_getmethods__["SizeOfImage64"] = _pySRDF.process_SizeOfImage64_get
+    if _newclass:SizeOfImage64 = _swig_property(_pySRDF.process_SizeOfImage64_get, _pySRDF.process_SizeOfImage64_set)
     __swig_setmethods__["Name"] = _pySRDF.process_Name_set
     __swig_getmethods__["Name"] = _pySRDF.process_Name_get
     if _newclass:Name = _swig_property(_pySRDF.process_Name_get, _pySRDF.process_Name_set)
@@ -795,6 +816,9 @@ class process(_object):
     __swig_setmethods__["IsFound"] = _pySRDF.process_IsFound_set
     __swig_getmethods__["IsFound"] = _pySRDF.process_IsFound_get
     if _newclass:IsFound = _swig_property(_pySRDF.process_IsFound_get, _pySRDF.process_IsFound_set)
+    __swig_setmethods__["Is64bits"] = _pySRDF.process_Is64bits_set
+    __swig_getmethods__["Is64bits"] = _pySRDF.process_Is64bits_get
+    if _newclass:Is64bits = _swig_property(_pySRDF.process_Is64bits_get, _pySRDF.process_Is64bits_set)
     def RefreshThreads(self): return _pySRDF.process_RefreshThreads(self)
     def __init__(self, *args): 
         this = _pySRDF.new_process(*args)
